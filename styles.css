@@ -1775,6 +1775,8 @@ h6 {
         min-width: 50px;
         /* Fixed width for alignment */
         flex-shrink: 0;
+        white-space: nowrap;
+        /* Prevent vertical stacking */
         /* Prevent time from squishing */
     }
 
@@ -1805,9 +1807,12 @@ h6 {
 .event-list .time {
     font-weight: 700;
     color: var(--secondary-color);
-    margin-right: 20px;
-    width: 60px;
+    margin-right: 15px;
+    min-width: 60px;
+    /* Use min-width instead of fixed width */
     display: inline-block;
+    white-space: nowrap;
+    /* Prevent vertical stacking */
 }
 
 .event-list .name {
