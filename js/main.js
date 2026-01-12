@@ -275,8 +275,8 @@ function renderNotices() {
     const noticeList = document.querySelector('.notice-list');
     if (!noticeList) return;
 
-    const savedData = JSON.parse(localStorage.getItem('siteData'));
-    const data = savedData || defaultData;
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
+    // const savedData = JSON.parse(localStorage.getItem('siteData')); // Removed logic prioritization
     const notices = data.notices || [];
 
     let html = '';
@@ -296,8 +296,8 @@ function loadNoticeDetail() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = parseInt(urlParams.get('id'));
 
-    const savedData = JSON.parse(localStorage.getItem('siteData'));
-    const data = savedData || defaultData;
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
+    // const savedData = JSON.parse(localStorage.getItem('siteData')); // Removed logic prioritization
     const notices = data.notices || [];
 
     const notice = notices.find(n => n.id === id);
@@ -502,25 +502,7 @@ function loadWorshipSchedule() {
     const container = document.getElementById('worshipScheduleContainer');
     if (!container) return;
 
-    let data = {};
-    try {
-        const saved = localStorage.getItem('siteData');
-        if (saved) {
-            data = JSON.parse(saved);
-        }
-    } catch (e) {
-        console.error("Data parse error", e);
-    }
-
-    // fallback to defaultData if specific arrays are missing or empty
-    if (typeof defaultData !== 'undefined') {
-        if (!data.worshipSunday || data.worshipSunday.length === 0) {
-            data.worshipSunday = defaultData.worshipSunday;
-        }
-        if (!data.worshipWeekday || data.worshipWeekday.length === 0) {
-            data.worshipWeekday = defaultData.worshipWeekday;
-        }
-    }
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
 
     // Sunday Schedule
     const sundayEvents = data.worshipSunday || [];
@@ -593,15 +575,15 @@ function loadWeeklySchedule() {
     const weekSection = document.querySelector('.schedule-board');
     if (!weekSection) return;
 
-    const savedData = JSON.parse(localStorage.getItem('siteData'));
-    const data = savedData || (typeof defaultData !== 'undefined' ? defaultData : {});
-    const schedule = data.weeklySchedule || { month: 'DEC', day: '07' };
+    // Prioritize defaultData (File) over localStorage to ensure updates are seen
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
+    const schedule = data.weeklySchedule || { month: '', day: '' };
 
     const dateEl = weekSection.querySelector('.cal-date');
     if (dateEl) {
         dateEl.innerHTML = `
-            <span class="month">${schedule.month || 'DEC'}</span>
-            <span class="day">${schedule.day || '07'}</span>
+            <span class="month">${schedule.month || ''}</span>
+            <span class="day">${schedule.day || ''}</span>
         `;
     }
 
@@ -611,14 +593,14 @@ function loadWeeklySchedule() {
         if (schedule.events && Array.isArray(schedule.events) && schedule.events.length > 0) {
             schedule.events.forEach(ev => {
                 itemsHtml += `
-                    <li>
+                    <li class="event">
                         <span class="time">${ev.time}</span>
-                        <span class="desc">${ev.name}</span>
+                        <span class="name">${ev.name}</span>
                     </li>
                 `;
             });
         } else {
-            itemsHtml = '<li style="color:#888;">등록된 일정이 없습니다.</li>';
+            itemsHtml = '<li style="color:#888; padding:10px 0;">등록된 일정이 없습니다.</li>';
         }
         listEl.innerHTML = itemsHtml;
     }
@@ -631,8 +613,7 @@ function updateShortcuts() {
     const container = document.querySelector('.quick-links-grid');
     if (!container) return;
 
-    const savedData = JSON.parse(localStorage.getItem('siteData'));
-    const data = savedData || (typeof defaultData !== 'undefined' ? defaultData : {});
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
     const shortcuts = data.shortcuts || {};
     const customPages = data.customPages || [];
 
@@ -685,8 +666,7 @@ function renderCustomPage() {
 
     if (!pageId || !container) return;
 
-    const savedData = JSON.parse(localStorage.getItem('siteData'));
-    const data = savedData || (typeof defaultData !== 'undefined' ? defaultData : {});
+    const data = (typeof defaultData !== 'undefined') ? defaultData : (JSON.parse(localStorage.getItem('siteData')) || {});
     const pages = data.customPages || [];
 
     const page = pages.find(p => p.id === pageId);
