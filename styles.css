@@ -1721,3 +1721,95 @@ h6 {
     cursor: pointer;
     z-index: 1001;
 }
+
+/* --- Mobile Optimization for Notice & Schedule (Added) --- */
+@media (max-width: 768px) {
+
+    /* Reduce padding for boards to give more content space */
+    .notice-board,
+    .schedule-board {
+        padding: 25px 20px;
+    }
+
+    /* Notice List Mobile Adjustments */
+    .notice-list li {
+        padding: 12px 0;
+    }
+
+    .notice-list .tag {
+        margin-right: 10px;
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .notice-list .date {
+        font-size: 0.8rem;
+    }
+
+    .notice-title {
+        font-size: 0.95rem;
+    }
+
+    /* Weekly Schedule Mobile Styling */
+    .event-list {
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .event-list .event {
+        display: flex;
+        align-items: flex-start;
+        /* Align top for multi-line names */
+        padding: 8px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .event-list .event:last-child {
+        border-bottom: none;
+    }
+
+    .event-list .time {
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-right: 15px;
+        min-width: 50px;
+        /* Fixed width for alignment */
+        flex-shrink: 0;
+        /* Prevent time from squishing */
+    }
+
+    .event-list .name {
+        word-break: keep-all;
+        /* Korean word keeping */
+        line-height: 1.4;
+        color: #444;
+    }
+}
+
+/* Also ensure basic styling for event list on Desktop too */
+.event-list {
+    margin-top: 20px;
+}
+
+.event-list .event {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.event-list .event:last-child {
+    border-bottom: none;
+}
+
+.event-list .time {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-right: 20px;
+    width: 60px;
+    display: inline-block;
+}
+
+.event-list .name {
+    color: #333;
+}
