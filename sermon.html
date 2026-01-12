@@ -220,6 +220,49 @@
         .close-summary:hover {
             color: #333;
         }
+
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .page-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .page-btn:disabled {
+            background: #f5f5f5;
+            color: #ccc;
+            cursor: not-allowed;
+            border-color: #eee;
+        }
     </style>
     <!-- PWA Configuration -->
     <link rel="manifest" href="manifest.json">
@@ -308,6 +351,9 @@
             <div id="sermonListContainer" class="sermon-grid">
                 <!-- Sermon Cards inserted here -->
             </div>
+
+            <!-- Pagination -->
+            <div id="paginationContainer" class="pagination"></div>
         </div>
     </section>
 
@@ -351,50 +397,110 @@
         /* --------------------------------------------------------------------
            설교 목록 로딩
         -------------------------------------------------------------------- */
-        function loadSermonList() {
+        /* --------------------------------------------------------------------
+           설교 목록 로딩 (페이지네이션 적용)
+        -------------------------------------------------------------------- */
+        const ITEMS_PER_PAGE = 6;
+        let currentPage = 1;
+        let allSermons = [];
+
+        function loadSermonList(page = 1) {
             const container = document.getElementById('sermonListContainer');
+            const paginationContainer = document.getElementById('paginationContainer');
             if (!container) return;
 
-            let savedData = {};
-            try {
-                savedData = JSON.parse(localStorage.getItem('siteData')) || {};
-            } catch (e) { }
+            // Load data only once or if empty
+            if (allSermons.length === 0) {
+                let savedData = {};
+                try {
+                    savedData = JSON.parse(localStorage.getItem('siteData')) || {};
+                } catch (e) { }
 
-            const baseData = (typeof defaultData !== 'undefined') ? defaultData : {};
-            const data = { ...baseData, ...savedData };
+                const baseData = (typeof defaultData !== 'undefined') ? defaultData : {};
+                const data = { ...baseData, ...savedData };
 
-            const sermons = Array.isArray(data.sermons) ? [...data.sermons] : [];
-            sermons.sort((a, b) => b.id - a.id);
+                allSermons = Array.isArray(data.sermons) ? [...data.sermons] : [];
+                allSermons.sort((a, b) => b.id - a.id);
+            }
+
+            // Calculate pagination
+            const totalItems = allSermons.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+            // Validate page
+            if (page < 1) page = 1;
+            if (page > totalPages && totalPages > 0) page = totalPages;
+            currentPage = page;
+
+            // Slice data
+            const start = (page - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            const displaySermons = allSermons.slice(start, end);
+
+            // Render Cards
+            let html = '';
+            if (displaySermons.length === 0) {
+                html = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">등록된 설교가 없습니다.</p>';
+            } else {
+                displaySermons.forEach((sermon, index) => {
+                    const realIndex = start + index; // For unique IDs if needed, but using thumb-index is fine locally
+                    const videoId = extractId(sermon.videoUrl);
+                    const thumb = videoId
+                        ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
+                        : 'https://via.placeholder.com/320x180?text=NO+THUMB';
+
+                    const embedUrl = getEmbedUrl(sermon.videoUrl);
+                    const thumbId = `thumb-${realIndex}-${Date.now()}`; // Ensure uniqueness
+
+                    html += `
+            <div class="sermon-card" onclick="playInlineSermon('${embedUrl}', '${thumbId}')">
+                <div class="sermon-thumb" id="${thumbId}">
+                    <img src="${thumb}" alt="${sermon.title}">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+    
+                <div class="sermon-info">
+                    <span class="date">${sermon.date}</span>
+                    <h3 class="title">${sermon.title}</h3>
+                    <p class="scripture">${sermon.scripture} | ${sermon.preacher}</p>
+                    ${(sermon.summary || sermon.file) ? `<button class="btn-summary" onclick="event.stopPropagation(); openSummaryModal(${realIndex})">말씀요약</button>` : ''}
+                </div>
+            </div>`;
+                });
+            }
+            container.innerHTML = html;
+
+            // Render Pagination Control
+            renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+            const paginationContainer = document.getElementById('paginationContainer');
+            if (!paginationContainer || totalPages <= 1) {
+                if (paginationContainer) paginationContainer.innerHTML = '';
+                return;
+            }
 
             let html = '';
 
-            sermons.forEach((sermon, index) => {
-                const videoId = extractId(sermon.videoUrl);
-                const thumb = videoId
-                    ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
-                    : 'https://via.placeholder.com/320x180?text=NO+THUMB';
+            // Prev Button
+            html += `<button class="page-btn" onclick="loadSermonList(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}><i class="fas fa-chevron-left"></i></button>`;
 
-                const embedUrl = getEmbedUrl(sermon.videoUrl);
-                const thumbId = `thumb-${index}`;
+            // Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="loadSermonList(${i})">${i}</button>`;
+            }
 
-                html += `
-        <div class="sermon-card" onclick="playInlineSermon('${embedUrl}', '${thumbId}')">
-            <div class="sermon-thumb" id="${thumbId}">
-                <img src="${thumb}" alt="${sermon.title}">
-                <div class="play-icon"><i class="fas fa-play"></i></div>
-            </div>
+            // Next Button
+            html += `<button class="page-btn" onclick="loadSermonList(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-chevron-right"></i></button>`;
 
-            <div class="sermon-info">
-                <span class="date">${sermon.date}</span>
-                <h3 class="title">${sermon.title}</h3>
-                <p class="scripture">${sermon.scripture} | ${sermon.preacher}</p>
-                ${(sermon.summary || sermon.file) ? `<button class="btn-summary" onclick="event.stopPropagation(); openSummaryModal(${index})">말씀요약</button>` : ''}
-            </div>
-        </div>`;
-            });
-
-            container.innerHTML = html;
+            paginationContainer.innerHTML = html;
         }
+
+        // Modified openSummaryModal to use actual sermon object from allSermons
+        /* NOTICE: The previous openSummaryModal relied on reloading data and sorting. 
+           Since we now have global 'allSermons', can directly use it. 
+           However, let's keep it robust by letting it index into allSermons correctly. */
 
 
         /* --------------------------------------------------------------------
