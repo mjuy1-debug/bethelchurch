@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필리핀지교회들 - 화도벧엘교회</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PRELOAD CRITICAL IMAGES -->
+    <link rel="preload" as="image" href="./images/123.png">
+
+    <!-- Critical CSS for Instant Local Loading -->
+    <style>
+        body {
+            background-color: #fff !important;
+        }
+
+        [data-img-key="header-bg-phil"] {
+            background-color: transparent !important;
+            background-image: url('./images/123.png') !important;
+        }
+    </style>
+
+    <script src="js/data.js"></script>
+
+    <!-- Critical Image Pre-loader (Anti-Flash) -->
+    <script>
+        (function () {
+            try {
+                var data = null;
+                var saved = localStorage.getItem('siteData');
+                if (saved) {
+                    data = JSON.parse(saved);
+                } else if (typeof defaultData !== 'undefined') {
+                    data = defaultData;
+                }
+
+                if (data) {
+                    var css = '';
+
+                    // Comprehensive list of image keys to pre-load
+                    var imgKeys = [
+                        'hero-bg', 'pastor-img',
+                        'header-bg-about', 'header-bg-worship', 'header-bg-nextgen',
+                        'header-bg-phil', 'header-bg-notice', 'header-bg-org',
+                        'header-bg-family', 'header-bg-newcomer',
+                        'ng-1-img', 'ng-2-img', 'ng-3-img',
+                        'org-1-img', 'org-2-img', 'org-3-img', 'org-4-img', 'org-5-img',
+                        'phil-1-img', 'phil-2-img', 'phil-3-img'
+                    ];
+
+                    imgKeys.forEach(function (key) {
+                        if (data[key]) {
+                            // Use !important to override inline styles and default CSS immediately
+                            if (key === 'pastor-img') {
+                                // For IMG tag: modify content
+                                css += '[data-img-key="' + key + '"] { content: url("' + data[key] + '") !important; }';
+                            } else {
+                                // For DIV/Section backgrounds
+                                css += '[data-img-key="' + key + '"] { background-image: url("' + data[key] + '") !important; }';
+                            }
+                        }
+                    });
+
+                    if (css) {
+                        var style = document.createElement('style');
+                        style.innerHTML = css;
+                        document.head.appendChild(style);
+                    }
+                }
+            } catch (e) {
+                console.error('Pre-loader error:', e);
+            }
+        })();
+    </script>
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-church"></i></span>
+                <span class="logo-text">화도벧엘교회</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="about.html">교회소개</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html#pastor">담임목사 인사말</a></li>
+                            <li><a href="about.html#vision">비전과 가치</a></li>
+                            <li><a href="about.html#location">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="worship.html">예배안내</a>
+                        <ul class="dropdown">
+                            <li><a href="worship.html">예배시간</a></li>
+                            <li><a href="sermon.html">말씀과 설교</a></li>
+                            <li><a href="family.html">성도의 기본생활</a></li>
+                            <li><a href="newcomer.html">기도 제목과 목표</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="nextgen.html">다음세대</a>
+                        <ul class="dropdown">
+                            <li><a href="nextgen.html#sunday-school">주일학교</a></li>
+                            <li><a href="nextgen.html#student">학생부</a></li>
+                            <li><a href="nextgen.html#young-adults">청년부</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#org">교회기관</a>
+                        <ul class="dropdown">
+                            <li><a href="org_detail.html?id=org-1">갈렙남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-2">여호수아남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-3">나오미여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-4">루디아여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-5">요안나여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-6">시온성가대</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="philippines.html">필리핀지교회들</a>
+                        <ul class="dropdown">
+                            <li><a href="mission_detail.html?id=phil-1">비난고난벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-2">팔라완벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-3">나보타스벧엘교회</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">공지사항</a></li>
+                </ul>
+            </nav>
+            <div class="header-utils">
+                <a href="#" class="btn-search"><i class="fas fa-search"></i></a>
+                <a href="#" class="btn-menu-mobile"><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero" data-img-key="header-bg-phil" style="background-image: url('./images/123.png');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="sub-title">필리핀지교회들</h1>
+            <p class="sub-desc">땅 끝까지 복음을 전하는 선교의 현장</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="mission-grid">
+                <!-- Card 1 -->
+                <div class="mission-card">
+                    <div class="mission-img" data-img-key="phil-1-img"
+                        style="background-image: url('./images/비난고난.png');">
+                    </div>
+                    <div class="mission-content">
+                        <a href="mission_detail.html?id=phil-1" style="text-decoration: none; color: inherit;">
+                            <h3 data-key="phil-1-title">비난고난벧엘교회</h3>
+                        </a>
+                        <p class="pastor-name" data-key="phil-1-pastor">June Pastor</p>
+                        <p class="mission-desc" data-key="phil-1-desc">필리핀 비난고난 지역의 영혼 구원을 위해 헌신하는 교회입니다.</p>
+                        <a href="mission_detail.html?id=phil-1" class="btn-text"
+                            style="margin-top: 15px; display: inline-block; color: var(--secondary-color); font-weight: 500;">자세히
+                            보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="mission-card">
+                    <div class="mission-img" data-img-key="phil-2-img"
+                        style="background-image: url('./images/나보타스.png');">
+                    </div>
+                    <div class="mission-content">
+                        <a href="mission_detail.html?id=phil-2" style="text-decoration: none; color: inherit;">
+                            <h3 data-key="phil-2-title">팔라완벧엘교회</h3>
+                        </a>
+                        <p class="pastor-name" data-key="phil-2-pastor">Kenniel Pastor</p>
+                        <p class="mission-desc" data-key="phil-2-desc">팔라완의 아름다운 자연 속에서 하나님의 사랑을 전합니다.</p>
+                        <a href="mission_detail.html?id=phil-2" class="btn-text"
+                            style="margin-top: 15px; display: inline-block; color: var(--secondary-color); font-weight: 500;">자세히
+                            보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="mission-card">
+                    <div class="mission-img" data-img-key="phil-3-img"
+                        style="background-image: url('./images/나보타스.jpg');">
+                    </div>
+                    <div class="mission-content">
+                        <a href="mission_detail.html?id=phil-3" style="text-decoration: none; color: inherit;">
+                            <h3 data-key="phil-3-title">나보타스벧엘교회</h3>
+                        </a>
+                        <p class="pastor-name" data-key="phil-3-pastor">Predley Pastor</p>
+                        <p class="mission-desc" data-key="phil-3-desc">나보타스 지역의 빈민촌을 섬기며 복음의 빛을 비춥니다.</p>
+                        <a href="mission_detail.html?id=phil-3" class="btn-text"
+                            style="margin-top: 15px; display: inline-block; color: var(--secondary-color); font-weight: 500;">자세히
+                            보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-info">
+                    <p>담임목사: 김석주</p>
+                    <p data-key="footer-address">주소: 경기도 남양주시 화도읍</p>
+                    <p class="copyright">© 2025 Hwado Bethel Church.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script src="js/data.js" moved to head -->
+    <script src="js/main.js"></script>
+    <style>
+        .sub-hero {
+            height: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            margin-top: 80px;
+        }
+
+        .sub-title {
+            font-size: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sub-desc {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mission-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mission-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mission-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .mission-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .pastor-name {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .mission-desc {
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+    </style>
+</body>
+
+</html>

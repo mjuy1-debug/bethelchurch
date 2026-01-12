@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교회 기관 안내 - 화도벧엘교회</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PRELOAD CRITICAL IMAGES -->
+    <link rel="preload" as="image" href="./uploads/file-1765452573146-638247426.jpg">
+
+    <!-- Critical CSS for Instant Local Loading -->
+    <style>
+        body {
+            background-color: #fff !important;
+        }
+
+        [data-img-key="header-bg-org"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765452573146-638247426.jpg') !important;
+        }
+    </style>
+
+    <script src="js/data.js"></script>
+
+    <!-- Critical Image Pre-loader (Anti-Flash) -->
+    <script>
+        (function () {
+            try {
+                var data = null;
+                var saved = localStorage.getItem('siteData');
+                if (saved) {
+                    data = JSON.parse(saved);
+                } else if (typeof defaultData !== 'undefined') {
+                    data = defaultData;
+                }
+
+                if (data) {
+                    var css = '';
+
+                    // Comprehensive list of image keys to pre-load
+                    var imgKeys = [
+                        'hero-bg', 'pastor-img',
+                        'header-bg-about', 'header-bg-worship', 'header-bg-nextgen',
+                        'header-bg-phil', 'header-bg-notice', 'header-bg-org',
+                        'header-bg-family', 'header-bg-newcomer',
+                        'ng-1-img', 'ng-2-img', 'ng-3-img',
+                        'org-1-img', 'org-2-img', 'org-3-img', 'org-4-img', 'org-5-img', 'org-6-img',
+                        'phil-1-img', 'phil-2-img', 'phil-3-img'
+                    ];
+
+                    imgKeys.forEach(function (key) {
+                        if (data[key]) {
+                            // Use !important to override inline styles and default CSS immediately
+                            if (key === 'pastor-img') {
+                                // For IMG tag: modify content
+                                css += '[data-img-key="' + key + '"] { content: url("' + data[key] + '") !important; }';
+                            } else {
+                                // For DIV/Section backgrounds
+                                css += '[data-img-key="' + key + '"] { background-image: url("' + data[key] + '") !important; }';
+                            }
+                        }
+                    });
+
+                    if (css) {
+                        var style = document.createElement('style');
+                        style.innerHTML = css;
+                        document.head.appendChild(style);
+                    }
+                }
+            } catch (e) {
+                console.error('Pre-loader error:', e);
+            }
+        })();
+    </script>
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-church"></i></span>
+                <span class="logo-text">화도벧엘교회</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="about.html">교회소개</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html#pastor">담임목사 인사말</a></li>
+                            <li><a href="about.html#vision">비전과 가치</a></li>
+                            <li><a href="about.html#location">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="worship.html">예배안내</a>
+                        <ul class="dropdown">
+                            <li><a href="worship.html">예배시간</a></li>
+                            <li><a href="sermon.html">말씀과 설교</a></li>
+                            <li><a href="family.html">성도의 기본생활</a></li>
+                            <li><a href="newcomer.html">기도 제목과 목표</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="nextgen.html">다음세대</a>
+                        <ul class="dropdown">
+                            <li><a href="nextgen.html#sunday-school">주일학교</a></li>
+                            <li><a href="nextgen.html#student">학생부</a></li>
+                            <li><a href="nextgen.html#young-adults">청년부</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#org">교회기관</a>
+                        <ul class="dropdown">
+                            <li><a href="org_detail.html?id=org-1">갈렙남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-2">여호수아남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-3">나오미여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-4">루디아여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-5">요안나여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-6">시온성가대</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="philippines.html">필리핀지교회들</a>
+                        <ul class="dropdown">
+                            <li><a href="mission_detail.html?id=phil-1">비난고난벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-2">팔라완벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-3">나보타스벧엘교회</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">공지사항</a></li>
+                </ul>
+            </nav>
+            <div class="header-utils">
+                <a href="#" class="btn-search"><i class="fas fa-search"></i></a>
+                <a href="#" class="btn-menu-mobile"><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub Hero -->
+    <section class="sub-hero" data-img-key="header-bg-org" style="background-image: url('./images/123.png');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="sub-title" id="pageTitle">교회 기관 안내</h1>
+            <p class="sub-desc">하나님의 사랑으로 섬기는 기관</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="container">
+            <div class="mission-detail-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="mission-detail-img"
+                    style="margin-bottom: 40px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img id="detailImg" src="" alt="Organization Image"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <div class="mission-header" style="text-align: center; margin-bottom: 50px;">
+                    <span
+                        style="display: block; font-size: 1rem; color: var(--secondary-color); font-weight: 700; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase;">Church
+                        Organization</span>
+                    <h2 class="title" id="detailTitle"
+                        style="font-family: 'Noto Serif KR', serif; font-size: 2.8rem; margin-bottom: 15px; color: #333; letter-spacing: -0.02em;">
+                    </h2>
+                    <div style="width: 50px; height: 3px; background: var(--secondary-color); margin: 20px auto;"></div>
+                    <!-- Pastor field removed or hidden if empty -->
+                    <p id="detailPastor"
+                        style="font-family: 'Noto Serif KR', serif; font-size: 1.3rem; color: #555; margin-top: 20px; font-weight: 500; display:none;">
+                    </p>
+                </div>
+
+                <div class="mission-content" id="detailDesc"
+                    style="font-size: 1.15rem; line-height: 1.9; color: #444; text-align: justify; word-break: keep-all;">
+                    <!-- Detailed content will be injected here -->
+                </div>
+
+                <div style="margin-top: 60px; text-align: center;">
+                    <a href="index.html#org" class="btn btn-outline"
+                        style="padding: 12px 30px; border: 1px solid #ddd; border-radius: 50px; transition: all 0.3s; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-list-ul" style="margin-right: 8px;"></i> 목록으로 돌아가기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">화도벧엘교회</div>
+                <div class="footer-menu">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이메일무단수집거부</a>
+                    <a href="#">오시는길</a>
+                    <a href="#">사이트맵</a>
+                </div>
+            </div>
+            <div class="footer-main">
+                <div class="footer-info">
+                    <p>담임목사: 김석주 | 고유번호: 000-00-00000</p>
+                    <p data-key="footer-address">주소: 경기도 남양주시 화도읍 (상세주소)</p>
+                    <p data-key="footer-tel">TEL: 031-000-0000 | FAX: 031-000-0000</p>
+                    <p class="copyright">© 2025 Hwado Bethel Church. All rights reserved.</p>
+                </div>
+                <div class="footer-sns">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fas fa-comment"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script src="js/data.js" moved to head -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id'); // e.g., 'org-1', 'org-2'
+
+            if (!id) {
+                alert('잘못된 접근입니다.');
+                window.location.href = 'index.html#org';
+                return;
+            }
+
+            // Load saved data
+            const merged = { ...defaultData };
+
+            const getValue = (key) => {
+                const val = merged[key];
+                if (val && val.trim() !== '') return val;
+                return defaultData[key] || '';
+            };
+
+            const titleKey = `${id}-title`;
+            const imgKey = `${id}-img`;
+            const pastorKey = `${id}-pastor`;
+            const descKey = `${id}-detail-desc`; // Detailed description
+            const shortDescKey = `${id}-desc`;
+
+            const titleEl = document.getElementById('detailTitle');
+            const pastorEl = document.getElementById('detailPastor');
+            const imgEl = document.getElementById('detailImg');
+            const descEl = document.getElementById('detailDesc');
+            const pageTitleEl = document.getElementById('pageTitle');
+
+            // Title
+            const titleVal = getValue(titleKey);
+            if (titleVal) {
+                titleEl.textContent = titleVal;
+                pageTitleEl.textContent = titleVal;
+            }
+
+            // Pastor
+            const pastorVal = getValue(pastorKey);
+            if (pastorVal) {
+                pastorEl.textContent = `담당 교역자: ${pastorVal}`;
+                pastorEl.style.display = 'block';
+            }
+
+            // Image
+            const imgVal = getValue(imgKey);
+            if (imgVal) {
+                imgEl.src = imgVal;
+            }
+
+            // Description
+            const detailDesc = getValue(descKey);
+            const shortDesc = getValue(shortDescKey);
+
+            if (detailDesc) {
+                descEl.innerHTML = detailDesc.replace(/\n/g, '<br>');
+            } else if (shortDesc) {
+                descEl.innerHTML = shortDesc.replace(/\n/g, '<br>');
+            } else {
+                descEl.innerHTML = '<p>준비 중입니다.</p>';
+            }
+
+            // Special Handling for Zion Choir (org-6)
+            if (id === 'org-6') {
+                // 1. Resize Image
+                const imgContainer = document.querySelector('.mission-detail-img');
+                if (imgContainer) {
+                    imgContainer.style.maxWidth = '80%';
+                    imgContainer.style.margin = '0 auto 40px auto';
+                }
+
+                // 2. Add Band Link Button
+                const btnContainer = document.querySelector('.mission-detail-container > div:last-child');
+                if (btnContainer) {
+                    const bandLink = document.createElement('a');
+                    bandLink.href = 'https://auth.band.us/login?next_url=https%3A%2F%2Fwww.band.us%2Fband%2F55299357';
+                    bandLink.target = '_blank';
+                    bandLink.className = 'btn';
+                    bandLink.style.cssText = `
+                        display: inline-block;
+                        padding: 12px 30px;
+                        background-color: #03C75A; /* Naver Band Green */
+                        color: white;
+                        border-radius: 50px;
+                        margin-right: 10px;
+                        marginBottom: '10px', /* Add bottom margin for mobile wrapping */
+                        textDecoration: 'none',
+                        fontWeight: '700',
+                        transition: 'all 0.3s',
+                        boxShadow: '0 4px 15px rgba(3, 199, 90, 0.4)',
+                        whiteSpace: 'nowrap', /* Prevent text wrapping inside button */
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    `;
+                    bandLink.innerHTML = '<i class="fas fa-users" style="margin-right: 8px;"></i> 시온성가대 밴드 바로가기';
+
+                    // Hover effect
+                    bandLink.onmouseover = () => { bandLink.style.transform = 'translateY(-3px)'; bandLink.style.boxShadow = '0 6px 20px rgba(3, 199, 90, 0.6)'; };
+                    bandLink.onmouseout = () => { bandLink.style.transform = 'translateY(0)'; bandLink.style.boxShadow = '0 4px 15px rgba(3, 199, 90, 0.4)'; };
+
+                    // Insert before the back button
+                    const backBtn = btnContainer.querySelector('.btn-outline');
+                    if (backBtn) {
+                        btnContainer.insertBefore(bandLink, backBtn);
+                        // Add line break or spacing for mobile if needed
+                        const spacer = document.createTextNode(' ');
+                        btnContainer.insertBefore(spacer, backBtn);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

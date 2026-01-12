@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page Builder Only Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .builder-container {
+            display: flex;
+            height: 600px;
+            border: 1px solid #ccc;
+            background: #fff;
+        }
+
+        .builder-palette {
+            width: 200px;
+            padding: 15px;
+            border-right: 1px solid #ccc;
+            background: #f9f9f9;
+        }
+
+        .builder-canvas {
+            flex: 1;
+            padding: 20px;
+            background: #f0f2f5;
+            position: relative;
+        }
+
+        .builder-block {
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 10px;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Page Builder Standalone Test</h1>
+    <div id="pagebuilder">
+        <div class="builder-container">
+            <div class="builder-palette">
+                <h5>Palette</h5>
+                <div class="draggable-block" draggable="true" data-type="text">Text</div>
+            </div>
+            <div class="builder-canvas" id="builderCanvas">Canvas</div>
+        </div>
+    </div>
+    <ul id="customPageList"></ul>
+    <button id="addNewPageBtn">New Page</button>
+    <script>
+        // Mock Data
+        const defaultData = { customPages: [] };
+        const localStorage = { getItem: () => "{}", setItem: () => { } };
+    </script>
+    <script src="../js/admin.js"></script>
+    <script>
+        // Manually trigger init
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Manual Init");
+            initPageBuilder();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화도벧엘교회 - 하나님 사랑, 이웃 사랑</title>
+    <meta property="og:image" content="images/homemain.png">
+
+    <!-- Google Fonts: Pretendard alternative (Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- PRELOAD CRITICAL IMAGES (Fastest Loading) -->
+    <link rel="preload" as="image" href="./uploads/file-1765187687721-163199067.png"> <!-- Hero BG -->
+    <link rel="preload" as="image" href="./uploads/file-1765181448282-228247910.png"> <!-- Pastor Img -->
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical CSS for Instant Local Loading (Default State) -->
+    <style>
+        /* Force white background on body immediately */
+        body {
+            background-color: #fff !important;
+        }
+
+        /* Hero Banner - Image Only, No Color */
+        .hero-bg {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765187687721-163199067.png') !important;
+        }
+
+        /* Pastor Image */
+        [data-img-key="pastor-img"] {
+            background-color: #f0f0f0 !important;
+            /* Light gray placeholder, not blue */
+            background-image: url('./uploads/file-1765181448282-228247910.png') !important;
+        }
+
+        /* Next Generation */
+        [data-img-key="ng-1-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181473232-702783357.jpg') !important;
+        }
+
+        [data-img-key="ng-2-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181519490-959194037.jpg') !important;
+        }
+
+        [data-img-key="ng-3-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181501790-327915609.jpg') !important;
+        }
+
+        /* Organizations */
+        [data-img-key="org-1-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181575800-654146910.jpg') !important;
+        }
+
+        [data-img-key="org-2-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181582933-239095144.png') !important;
+        }
+
+        [data-img-key="org-3-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181589344-631275801.png') !important;
+        }
+
+        [data-img-key="org-4-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181595526-488149509.jpg') !important;
+        }
+
+        [data-img-key="org-5-img"] {
+            background-color: transparent !important;
+            background-image: url('./uploads/file-1765181604301-29497606.jpg') !important;
+        }
+    </style>
+
+    <script src="js/data.js"></script>
+
+    <!-- Critical Image Pre-loader (Anti-Flash) -->
+    <script>
+        (function () {
+            try {
+                var data = null;
+                var saved = localStorage.getItem('siteData');
+                if (saved) {
+                    data = JSON.parse(saved);
+                } else if (typeof defaultData !== 'undefined') {
+                    data = defaultData;
+                }
+
+                if (data) {
+                    var css = '';
+
+                    // Comprehensive list of image keys to pre-load
+                    var imgKeys = [
+                        'hero-bg', 'pastor-img',
+                        'header-bg-about', 'header-bg-worship', 'header-bg-nextgen',
+                        'header-bg-phil', 'header-bg-notice', 'header-bg-org',
+                        'header-bg-family', 'header-bg-newcomer',
+                        'ng-1-img', 'ng-2-img', 'ng-3-img',
+                        'org-1-img', 'org-2-img', 'org-3-img', 'org-4-img', 'org-5-img', 'org-6-img',
+                        'phil-1-img', 'phil-2-img', 'phil-3-img'
+                    ];
+
+                    imgKeys.forEach(function (key) {
+                        if (data[key]) {
+                            // Use !important to override inline styles and default CSS immediately
+                            if (key === 'pastor-img') {
+                                // For IMG tag: modify content
+                                css += '[data-img-key="' + key + '"] { content: url("' + data[key] + '") !important; }';
+                            } else {
+                                // For DIV/Section backgrounds
+                                css += '[data-img-key="' + key + '"] { background-image: url("' + data[key] + '") !important; }';
+                            }
+                        }
+                    });
+
+                    if (css) {
+                        var style = document.createElement('style');
+                        style.innerHTML = css;
+                        document.head.appendChild(style);
+                    }
+                }
+            } catch (e) {
+                console.error('Pre-loader error:', e);
+            }
+        })();
+    </script>
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-church"></i></span>
+                <span class="logo-text">화도벧엘교회</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="about.html">교회소개</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html#pastor">담임목사 인사말</a></li>
+                            <li><a href="about.html#vision">비전과 가치</a></li>
+                            <li><a href="about.html#location">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="worship.html">예배안내</a>
+                        <ul class="dropdown">
+                            <li><a href="worship.html">예배시간</a></li>
+                            <li><a href="sermon.html">말씀과 설교</a></li>
+                            <li><a href="family.html">성도의 기본생활</a></li>
+                            <li><a href="newcomer.html">기도 제목과 목표</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="nextgen.html">다음세대</a>
+                        <ul class="dropdown">
+                            <li><a href="nextgen.html#sunday-school">주일학교</a></li>
+                            <li><a href="nextgen.html#student">학생부</a></li>
+                            <li><a href="nextgen.html#young-adults">청년부</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#org">교회기관</a>
+                        <ul class="dropdown">
+                            <li><a href="org_detail.html?id=org-1">갈렙남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-2">여호수아남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-3">나오미여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-4">루디아여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-5">요안나여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-6">시온성가대</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="philippines.html">필리핀지교회들</a>
+                        <ul class="dropdown">
+                            <li><a href="mission_detail.html?id=phil-1">비난고난벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-2">팔라완벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-3">나보타스벧엘교회</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">공지사항</a></li>
+                </ul>
+            </nav>
+            <div class="header-utils">
+                <a href="#" class="btn-search"><i class="fas fa-search"></i></a>
+                <a href="#" class="btn-menu-mobile"><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" data-img-key="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <div class="hero-text" data-aos="fade-up">
+                <h2 class="hero-subtitle" data-key="hero-subtitle">하나님 사랑, 이웃 사랑</h2>
+                <h1 class="hero-title" data-key="hero-title">은혜가 흐르는<br>화도벧엘교회</h1>
+                <p class="hero-desc" data-key="hero-desc">하나님의 임재가 가득한 이곳으로 여러분을 초대합니다.</p>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links container">
+        <div class="quick-links-grid">
+            <a href="worship.html" class="quick-card">
+                <div class="icon-wrapper"><i class="fas fa-praying-hands"></i></div>
+                <h3 data-key="link-1-title">주일예배</h3>
+                <p data-key="link-1-desc">거룩한 예배의 자리</p>
+                <div class="hover-line"></div>
+            </a>
+            <a href="sermon.html" class="quick-card">
+                <div class="icon-wrapper"><i class="fas fa-book-open"></i></div>
+                <h3 data-key="link-2-title">오늘의 말씀</h3>
+                <p data-key="link-2-desc">매일의 영적 양식</p>
+                <div class="hover-line"></div>
+            </a>
+            <a href="family.html" class="quick-card">
+                <div class="icon-wrapper"><i class="fas fa-bible"></i></div>
+                <h3 data-key="link-3-title">성도의 기본생활</h3>
+                <p data-key="link-3-desc">성도의 5가지 생활 수칙</p>
+                <div class="hover-line"></div>
+            </a>
+            <a href="newcomer.html" class="quick-card">
+                <div class="icon-wrapper"><i class="fas fa-bullseye"></i></div>
+                <h3 data-key="link-4-title">기도 제목과 목표</h3>
+                <p data-key="link-4-desc">우리 교회기도의 방향</p>
+                <div class="hover-line"></div>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Sermon Section -->
+    <section class="section sermon-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">주일설교</h2>
+                <a href="sermon.html" class="view-more">더보기 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="sermon-content">
+                <div class="sermon-video-wrapper">
+                    <!-- New Custom YouTube Player -->
+                    <div class="churchYT-wrapper" data-video="">
+                        <img src="./images/sermons/thumbnail.png" class="churchYT-thumb" alt="Sermon Thumbnail">
+                        <div class="churchYT-play">▶</div>
+                    </div>
+                </div>
+                <div class="sermon-info">
+                    <span class="sermon-date" data-key="sermon-date">2025.12.07 주일예배</span>
+                    <h3 class="sermon-title" data-key="sermon-title">하나님의 마음에 합한 사람</h3>
+                    <p class="sermon-scripture" data-key="sermon-scripture">사무엘상 13:14</p>
+                    <div class="sermon-preacher">
+                        <div class="preacher-img" data-img-key="pastor-img"></div>
+                        <span data-key="sermon-preacher">김석주 담임목사</span>
+                    </div>
+                    <div class="sermon-actions">
+                        <button class="btn btn-primary" id="btnWatchVideo">영상보기</button>
+                        <button class="btn btn-outline" id="btnShowSummary">말씀요약</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Church Intro Section -->
+    <section class="section intro-section">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <h2 class="title" style="color: var(--primary-color);">교회소개</h2>
+                <p class="desc" style="font-size: 1.1rem; color: #555; margin-top: 15px;">
+                    환영합니다 하나님의 사랑이 넘치는 화도벧엘교회입니다<br>
+                    주님의 이름으로 여러분을 축복합니다
+                </p>
+            </div>
+            <div class="intro-grid">
+                <div class="pastor-area">
+                    <div class="pastor-img">
+                        <img src="./images/목사님.png" alt="Pastor" data-img-key="pastor-img">
+                    </div>
+                    <div class="pastor-quote">
+                        <h3 data-key="pastor-quote">"오직 예수 그리스도의 복음만이 희망입니다"</h3>
+                        <p data-key="pastor-name">화도벧엘교회 담임목사 <strong>김석주</strong></p>
+                    </div>
+                </div>
+                <div class="vision-cards">
+                    <div class="v-card">
+                        <div class="v-icon"><i class="fas fa-cross"></i></div>
+                        <div>
+                            <h4 data-key="vision-1-title">복음의 능력</h4>
+                            <p data-key="vision-1-desc">십자가의 사랑을 전하는 교회</p>
+                        </div>
+                    </div>
+                    <div class="v-card">
+                        <div class="v-icon"><i class="fas fa-heart"></i></div>
+                        <div>
+                            <h4 data-key="vision-2-title">사랑의 섬김</h4>
+                            <p data-key="vision-2-desc">이웃을 내 몸과 같이 사랑하는 교회</p>
+                        </div>
+                    </div>
+                    <div class="v-card">
+                        <div class="v-icon"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <h4 data-key="vision-3-title">세계 선교</h4>
+                            <p data-key="vision-3-desc">땅 끝까지 복음을 전하는 교회</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Generation -->
+    <section class="section next-gen-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="title" data-key="nextgen-title">다음세대</h2>
+                <p class="desc" data-key="nextgen-desc">화도벧엘교회의 미래이자 희망입니다</p>
+            </div>
+            <div class="next-gen-grid">
+                <div class="ng-item">
+                    <div class="ng-img" data-img-key="ng-1-img"
+                        style="background-image: url('./images/KakaoTalk_20240914_172650750.jpg');">
+                    </div>
+                    <div class="ng-content">
+                        <h3 data-key="ng-1-title">주일학교</h3>
+                        <p data-key="ng-1-desc">말씀으로 자라나는 아이들</p>
+                        <a href="nextgen.html" class="btn-text">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="ng-item">
+                    <div class="ng-img" data-img-key="ng-3-img"
+                        style="background-image: url('./images/KakaoTalk_20240914_172645310.jpg');">
+                    </div>
+                    <div class="ng-content">
+                        <h3 data-key="ng-3-title">학생부</h3>
+                        <p data-key="ng-3-desc">꿈을 꾸는 다음세대</p>
+                        <a href="nextgen.html" class="btn-text">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="ng-item">
+                    <div class="ng-img" data-img-key="ng-2-img" style="background-image: url('./images/청년부.png');">
+                    </div>
+                    <div class="ng-content">
+                        <h3 data-key="ng-2-title">청년부</h3>
+                        <p data-key="ng-2-desc">세상을 변화시키는 청년들</p>
+                        <a href="nextgen.html" class="btn-text">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizations -->
+    <section class="section org-section" id="org" 55>
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="title">교회 기관</h2>
+                <p class="desc">하나님의 사랑으로 섬기는 화도벧엘교회의 기관입니다</p>
+            </div>
+            <div class="org-grid">
+                <!-- Row 1: Women's Groups -->
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-3'">
+                    <div class="org-img" data-img-key="org-3-img"
+                        style="background-image: url('./images/KakaoTalk_20240310_144315559_12.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-3-title">나오미여전도회</h3>
+                        <p data-key="org-3-desc">기쁨의 섬김</p>
+                    </div>
+                </div>
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-4'">
+                    <div class="org-img" data-img-key="org-4-img"
+                        style="background-image: url('./images/KakaoTalk_20240823_214000369_08.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-4-title">루디아여전도회</h3>
+                        <p data-key="org-4-desc">헌신과 사랑</p>
+                    </div>
+                </div>
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-5'">
+                    <div class="org-img" data-img-key="org-5-img"
+                        style="background-image: url('./images/KakaoTalk_20240823_214000369_18.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-5-title">요안나여전도회</h3>
+                        <p data-key="org-5-desc">충성된 일꾼</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Men's Groups & Choir -->
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-1'">
+                    <div class="org-img" data-img-key="org-1-img"
+                        style="background-image: url('./images/KakaoTalk_20240310_143520344_13.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-1-title">갈렙남전도회</h3>
+                        <p data-key="org-1-desc">믿음의 용사들</p>
+                    </div>
+                </div>
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-2'">
+                    <div class="org-img" data-img-key="org-2-img"
+                        style="background-image: url('./images/KakaoTalk_20240310_144315559_11.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-2-title">여호수아남전도회</h3>
+                        <p data-key="org-2-desc">승리의 함성</p>
+                    </div>
+                </div>
+                <div class="org-card" onclick="location.href='org_detail.html?id=org-6'">
+                    <div class="org-img" data-img-key="org-6-img"
+                        style="background-image: url('./images/choir_placeholder.jpg');">
+                    </div>
+                    <div class="org-info">
+                        <h3 data-key="org-6-title">시온성가대</h3>
+                        <p data-key="org-6-desc">하나님을 찬양하는 기쁨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notice & Schedule -->
+    <section class="section notice-section">
+        <div class="container">
+            <div class="notice-grid">
+                <div class="notice-board">
+                    <div class="board-header">
+                        <h3>교회소식</h3>
+                        <a href="community.html" class="more">+</a>
+                    </div>
+                    <ul class="notice-list">
+                        <!-- Dynamic Content -->
+                    </ul>
+                </div>
+                <div class="schedule-board">
+                    <div class="board-header">
+                        <h3>주간일정</h3>
+                    </div>
+                    <div class="calendar-widget">
+                        <div class="cal-date">
+                            <span class="month">DEC</span>
+                            <span class="day">07</span>
+                        </div>
+                        <div class="cal-events">
+                            <div class="event">
+                                <span class="time">09:00</span>
+                                <span class="name">1부 주일예배</span>
+                            </div>
+                            <div class="event">
+                                <span class="time">11:00</span>
+                                <span class="name">2부 주일예배</span>
+                            </div>
+                            <div class="event">
+                                <span class="time">13:00</span>
+                                <span class="name">청년부 예배</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">화도벧엘교회</div>
+                <div class="footer-menu">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이메일무단수집거부</a>
+                    <a href="#">오시는길</a>
+                    <a href="#">사이트맵</a>
+                </div>
+            </div>
+            <div class="footer-main">
+                <div class="footer-info">
+                    <p>담임목사: 김석주 | 고유번호: 000-00-00000</p>
+                    <p data-key="footer-address">주소: 경기도 남양주시 화도읍 (상세주소)</p>
+                    <p data-key="footer-tel">TEL: 031-000-0000 | FAX: 031-000-0000</p>
+                    <p class="copyright">© 2025 Hwado Bethel Church. All rights reserved.</p>
+                </div>
+                <div class="footer-sns">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fas fa-comment"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <iframe id="modalVideoFrame" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="summaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">말씀 요약</h3>
+            <div id="modalSummaryText" class="modal-body"></div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a id="summaryDownloadLink" href="#" class="btn btn-primary" style="display: none;" download>
+                    <i class="fas fa-download"></i> 파일 다운로드
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- script src="js/data.js" moved to head -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

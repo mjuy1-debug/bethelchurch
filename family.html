@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가정예배 - 화도벧엘교회</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PRELOAD CRITICAL IMAGES -->
+    <link rel="preload" as="image" href="./images/family_life.png">
+
+    <!-- Critical CSS for Instant Local Loading -->
+    <style>
+        body {
+            background-color: #fff !important;
+        }
+
+        [data-img-key="header-bg-family"] {
+            background-color: transparent !important;
+            background-image: url('./images/family_life.png') !important;
+        }
+    </style>
+
+    <script src="js/data.js"></script>
+
+    <!-- Critical Image Pre-loader (Anti-Flash) -->
+    <script>
+        (function () {
+            try {
+                var data = null;
+                var saved = localStorage.getItem('siteData');
+                if (saved) {
+                    data = JSON.parse(saved);
+                } else if (typeof defaultData !== 'undefined') {
+                    data = defaultData;
+                }
+
+                if (data) {
+                    var css = '';
+
+                    // Comprehensive list of image keys to pre-load
+                    var imgKeys = [
+                        'hero-bg', 'pastor-img',
+                        'header-bg-about', 'header-bg-worship', 'header-bg-nextgen',
+                        'header-bg-phil', 'header-bg-notice', 'header-bg-org',
+                        'header-bg-family', 'header-bg-newcomer',
+                        'ng-1-img', 'ng-2-img', 'ng-3-img',
+                        'org-1-img', 'org-2-img', 'org-3-img', 'org-4-img', 'org-5-img',
+                        'phil-1-img', 'phil-2-img', 'phil-3-img'
+                    ];
+
+                    imgKeys.forEach(function (key) {
+                        if (data[key]) {
+                            // Use !important to override inline styles and default CSS immediately
+                            if (key === 'pastor-img') {
+                                // For IMG tag: modify content
+                                css += '[data-img-key="' + key + '"] { content: url("' + data[key] + '") !important; }';
+                            } else {
+                                // For DIV/Section backgrounds
+                                css += '[data-img-key="' + key + '"] { background-image: url("' + data[key] + '") !important; }';
+                            }
+                        }
+                    });
+
+                    if (css) {
+                        var style = document.createElement('style');
+                        style.innerHTML = css;
+                        document.head.appendChild(style);
+                    }
+                }
+            } catch (e) {
+                console.error('Pre-loader error:', e);
+            }
+        })();
+    </script>
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-church"></i></span>
+                <span class="logo-text">화도벧엘교회</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="about.html">교회소개</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html#pastor">담임목사 인사말</a></li>
+                            <li><a href="about.html#vision">비전과 가치</a></li>
+                            <li><a href="about.html#location">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="worship.html">예배안내</a>
+                        <ul class="dropdown">
+                            <li><a href="worship.html">예배시간</a></li>
+                            <li><a href="sermon.html">말씀과 설교</a></li>
+                            <li><a href="family.html">성도의 기본생활</a></li>
+                            <li><a href="newcomer.html">기도 제목과 목표</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="nextgen.html">다음세대</a>
+                        <ul class="dropdown">
+                            <li><a href="nextgen.html#sunday-school">주일학교</a></li>
+                            <li><a href="nextgen.html#student">학생부</a></li>
+                            <li><a href="nextgen.html#young-adults">청년부</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#org">교회기관</a>
+                        <ul class="dropdown">
+                            <li><a href="org_detail.html?id=org-1">갈렙남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-2">여호수아남전도회</a></li>
+                            <li><a href="org_detail.html?id=org-3">나오미여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-4">루디아여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-5">요안나여전도회</a></li>
+                            <li><a href="org_detail.html?id=org-6">시온성가대</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="philippines.html">필리핀지교회들</a>
+                        <ul class="dropdown">
+                            <li><a href="mission_detail.html?id=phil-1">비난고난벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-2">팔라완벧엘교회</a></li>
+                            <li><a href="mission_detail.html?id=phil-3">나보타스벧엘교회</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="community.html">공지사항</a></li>
+                </ul>
+            </nav>
+            <div class="header-utils">
+                <a href="#" class="btn-search"><i class="fas fa-search"></i></a>
+                <a href="#" class="btn-menu-mobile"><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sub-hero" data-img-key="header-bg-family"
+        style="background-image: url('./images/family_life.png');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="sub-title">성도의 기본생활</h1>
+            <p class="sub-desc">가정이 바로 작은 교회입니다</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="title">성도의 기본생활</h2>
+                <p class="desc">하나님 보시기에 아름다운 성도의 5가지 생활 수칙</p>
+            </div>
+
+            <div class="life-grid">
+                <div class="life-card">
+                    <div class="icon-box">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>온전한 주일성수</h3>
+                    <p class="scripture">(출 20:8-11)</p>
+                </div>
+                <div class="life-card">
+                    <div class="icon-box">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>온전한 십일조</h3>
+                    <p class="scripture">(말 3:7-10)</p>
+                </div>
+                <div class="life-card">
+                    <div class="icon-box">
+                        <i class="fas fa-book-bible"></i>
+                    </div>
+                    <h3>매일 성경읽기</h3>
+                    <p class="scripture">(행 17:11)</p>
+                </div>
+                <div class="life-card">
+                    <div class="icon-box">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3>매일 기도하기</h3>
+                    <p class="scripture">(살전 5:17)</p>
+                </div>
+                <div class="life-card">
+                    <div class="icon-box">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>매일 전도하기</h3>
+                    <p class="scripture">(행 5:42)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-info">
+                    <p>담임목사: 김석주</p>
+                    <p data-key="footer-address">주소: 경기도 남양주시 화도읍</p>
+                    <p class="copyright">© 2025 Hwado Bethel Church.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script src="js/data.js" moved to head -->
+    <script src="js/main.js"></script>
+    <style>
+        .sub-hero {
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            margin-top: 80px;
+        }
+
+        .sub-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .sub-desc {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .life-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .life-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: #fff;
+            font-size: 32px;
+            box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+        }
+
+        .life-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .life-card .scripture {
+            color: var(--text-sub);
+            font-size: 1rem;
+            font-family: 'Noto Serif KR', serif;
+            font-style: italic;
+        }
+    </style>
+</body>
+
+</html>
