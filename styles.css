@@ -581,25 +581,63 @@ h6 {
     /* Global Compact Overrides */
     .section {
         padding: 40px 0;
-        /* Reduced from 80px/120px */
+        /* Fallback */
+    }
+
+    /* Extreme Compact for Main Flow */
+    .intro-section,
+    .next-gen-section,
+    .org-section,
+    .notice-section {
+        padding: 20px 0;
+        /* Minimal padding for flow */
     }
 
     .section-header {
-        margin-bottom: 30px;
-        /* Reduced from 60px */
+        margin-bottom: 20px;
+        /* Reduced from 30px */
     }
 
     .footer {
-        padding: 40px 0;
-        /* Reduced from 80px */
+        padding: 30px 0;
+        /* Even more compact */
+    }
+
+    /* Next Gen Item Compact styling */
+    .ng-item {
+        margin-bottom: 15px;
+        /* Reduced margin */
+    }
+
+    .ng-img {
+        height: 180px !important;
+        /* Reduced from default/250px */
+    }
+
+    .ng-info {
+        padding: 15px;
+        /* Reduced from 24px */
+    }
+
+    .ng-info h3 {
+        font-size: 1.15rem;
+        /* Reduced from 1.3rem */
+        margin-bottom: 5px;
+    }
+
+    .ng-info p {
+        font-size: 0.9rem;
+        /* Reduced from 0.95rem */
     }
 
     .org-grid {
         display: flex !important;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding: 10px 5px 30px 5px;
+        gap: 15px;
+        /* Reduced gap */
+        padding: 5px 5px 20px 5px;
+        /* Compact padding */
         /* Bottom padding for shadow */
         -webkit-overflow-scrolling: touch;
         grid-template-columns: unset !important;
@@ -610,7 +648,8 @@ h6 {
     }
 
     .org-card {
-        min-width: 260px;
+        min-width: 240px;
+        /* Slightly narrower */
         flex: 0 0 auto;
         scroll-snap-align: center;
         margin: 0;
