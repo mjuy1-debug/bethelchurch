@@ -1,54 +1,47 @@
 /* Design System & Variables */
 :root {
-    /* Colors - Modern Clean Theme (Apple/Startup Style) */
-    --primary-color: #111827;
-    /* Dark Slate / Charcoal (Modern Black) */
-    --secondary-color: #3B82F6;
-    /* Vivid Blue (Digital First) */
-    --secondary-hover: #2563EB;
-    /* Deep Blue Hover */
-    --accent-gray: #F3F4F6;
-    /* Cool Gray for backgrounds */
+    /* Colors - Original Theme (Restored) */
+    --primary-color: #1D3A6F;
+    /* Deep Navy */
+    --secondary-color: #3E7BFA;
+    /* Royal Blue */
+    --secondary-hover: #2b62d9;
+    --accent-color: #F4E1D2;
+    /* Cream Gold */
 
     --bg-color: #FFFFFF;
-    --bg-light: #F9FAFB;
+    --bg-light: #F2F5FA;
+    /* Light Blue Grey */
     --bg-warm: #FFFFFF;
-    /* No more warm beige, sticking to clean white/gray */
 
-    --text-main: #1F2937;
-    /* Cool Gray 800 */
-    --text-sub: #6B7280;
-    /* Cool Gray 500 */
+    --text-main: #222222;
+    --text-sub: #666666;
     --white: #FFFFFF;
 
-    /* Fonts - Clean Sans-serif everywhere */
+    /* Fonts */
     --font-heading: 'Noto Sans KR', sans-serif;
     --font-body: 'Noto Sans KR', sans-serif;
     --font-serif: 'Noto Serif KR', serif;
-    /* Kept only for very specific quotes if needed */
 
     /* Typography Settings */
     --base-font-size: 16px;
-    --hero-title-size: 4.5rem;
-    --hero-title-spacing: -0.03em;
-    /* Tighter tracking for modern look */
+    --hero-title-size: 5rem;
+    --hero-title-spacing: 0;
     --hero-title-line-height: 1.1;
-    --hero-subtitle-size: 1.6rem;
+    --hero-subtitle-size: 1.8rem;
     --hero-subtitle-spacing: 0;
-    --hero-desc-size: 1.25rem;
-    --section-title-size: 2.25rem;
+    --hero-desc-size: 1.4rem;
+    --section-title-size: 2.5rem;
 
-    /* Effects - Minimalist */
-    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --glass-bg: rgba(255, 255, 255, 0.95);
-    --glass-border: 1px solid rgba(229, 231, 235, 0.5);
-    --backdrop-blur: blur(8px);
+    /* Effects */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 40px rgba(29, 58, 111, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --backdrop-blur: blur(10px);
 
-    --border-radius: 16px;
-    /* Smooth modern radius */
-    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Faster, snappier transition */
+    --border-radius: 20px;
+    --transition: all 0.3s ease;
 }
 
 /* Reset & Base Styles */
@@ -113,19 +106,18 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    font-weight: 800;
-    /* Extra Bold for modern impact */
-    line-height: 1.25;
-    letter-spacing: -0.025em;
-    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: inherit;
+    /* Use default or parent */
 }
 
 .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    position: relative;
 }
 
 .section-header.text-center {
@@ -140,10 +132,9 @@ h6 {
     padding-bottom: 0;
 }
 
-/* Minimalist Underline - Just a small dash or none */
+/* No underline or simple underline if needed */
 .section-header .title::after {
     display: none;
-    /* Removing the line for cleaner look */
 }
 
 .section-header.text-center .title::after {
@@ -155,29 +146,25 @@ h6 {
     font-family: var(--font-body);
     font-size: 1.1rem;
     color: var(--text-sub);
-    margin-top: 12px;
+    margin-top: 10px;
     font-weight: 400;
 }
 
 .view-more {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    /* Use Secondary Blue */
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-sub);
     display: flex;
     align-items: center;
-    gap: 6px;
-    transition: var(--transition);
-    padding: 6px 12px;
-    border-radius: 8px;
-    background-color: var(--bg-light);
+    gap: 8px;
+    background: transparent;
+    padding: 0;
 }
 
 .view-more:hover {
-    background-color: rgba(59, 130, 246, 0.1);
-    /* Subtle blue tint bg */
-    transform: translateX(2px);
+    background: transparent;
+    transform: none;
+    color: var(--secondary-color);
 }
 
 /* Header */
@@ -934,96 +921,98 @@ h6 {
 .next-gen-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    /* Slightly tighter gap */
+    gap: 30px;
 }
 
 .ng-item {
-    position: relative;
-    height: 300px;
-    /* Reduced from 400px */
+    display: flex;
+    flex-direction: column;
+    /* Stack image and content vertically */
+    background: var(--white);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     cursor: pointer;
-    /* Suggest interaction */
+    transition: var(--transition);
+    height: auto;
+    /* Allow content to determine height */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ng-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .ng-img {
     width: 100%;
-    height: 100%;
+    height: 220px;
+    /* Fixed height for image */
     background-size: cover;
     background-position: center;
-    transition: transform 0.5s ease-out;
-    /* Snappier */
+    transition: transform 0.6s ease;
 }
 
 .ng-item:hover .ng-img {
     transform: scale(1.05);
-    /* Subtle zoom */
+    /* Subtle zoom inside container */
 }
 
 .ng-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    /* Lighter dark tint usually */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
-    /* Cleaner gradient */
+    position: relative;
+    /* Static text block below image */
+    background: var(--white);
+    /* Ensure white background for text area */
+    padding: 30px 24px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    padding-bottom: 30px;
-    color: var(--white);
     text-align: center;
-    transition: var(--transition);
+    color: var(--text-main);
 }
 
 .ng-item:hover .ng-content {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%);
-    /* Just slightly darker */
+    background: var(--white);
+    /* Keep white on hover */
 }
 
 .ng-content h3 {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
-    margin-bottom: 4px;
-    font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: none;
 }
 
 .ng-content p {
-    font-family: var(--font-body);
     font-size: 1rem;
     margin-bottom: 20px;
-    opacity: 0.9;
+    opacity: 0.8;
+    color: var(--text-sub);
     font-weight: 400;
 }
 
 .btn-text {
-    color: var(--white);
+    color: var(--secondary-color);
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid transparent;
     transition: var(--transition);
 }
 
 .btn-text:hover {
-    background: var(--white);
-    color: var(--primary-color);
-    border-color: var(--white);
+    background: transparent;
+    color: var(--secondary-hover);
+    border-bottom-color: var(--secondary-hover);
 }
 
 .btn-text i {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-left: 5px;
 }
 
