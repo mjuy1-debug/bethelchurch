@@ -279,8 +279,11 @@ function renderNotices() {
     // const savedData = JSON.parse(localStorage.getItem('siteData')); // Removed logic prioritization
     const notices = data.notices || [];
 
+    // Sort by ID descending (Newest first)
+    const sortedNotices = [...notices].sort((a, b) => b.id - a.id);
+
     let html = '';
-    notices.forEach(notice => {
+    sortedNotices.forEach(notice => {
         html += `
             <li>
                 <span class="tag">${notice.category}</span>
