@@ -151,20 +151,31 @@ h6 {
 }
 
 .view-more {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-sub);
     display: flex;
     align-items: center;
     gap: 8px;
     background: transparent;
-    padding: 0;
+    padding: 8px 16px;
+    /* Added padding */
+    border: 1px solid #e0e0e0;
+    /* Added border */
+    border-radius: 20px;
+    /* Pill shape */
+    transition: var(--transition);
+    margin-right: 15px;
+    /* Pull away from the right edge */
 }
 
 .view-more:hover {
-    background: transparent;
-    transform: none;
+    background: var(--bg-light);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
     color: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Gentle shadow */
 }
 
 /* Header */
