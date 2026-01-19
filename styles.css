@@ -848,6 +848,12 @@ h6 {
     object-fit: cover;
 }
 
+.pastor-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .pastor-img img {
     width: 100%;
     height: auto;
@@ -1600,6 +1606,42 @@ h6 {
 
     .ng-detail-img {
         height: 250px;
+    }
+
+    /* Pastor Intro Mobile */
+    .pastor-img {
+        height: 280px;
+        /* Reduced height from 400px */
+        width: 100%;
+        margin-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .pastor-text {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 0 0 16px 16px;
+        /* Bottom rounded corners */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        /* Soft shadow */
+        margin-top: -10px;
+        /* Slight overlap or connected feel */
+        position: relative;
+        z-index: 2;
+        color: var(--text-main);
+        /* Ensure dark text */
+    }
+
+    .pastor-text h3 {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .pastor-text .greeting-content {
+        color: var(--text-sub);
+        font-size: 0.95rem;
     }
 
     /* Notice Alignment Fix - Standard Card */
