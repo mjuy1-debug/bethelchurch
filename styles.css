@@ -1410,12 +1410,48 @@ h6 {
         text-align: center;
     }
 
-    .intro-grid {
+    .intro-grid,
+    .next-gen-grid,
+    .quick-links-grid,
+    .notice-grid {
+        display: block;
+        /* Ensure block layout for easy stacking */
         grid-template-columns: 1fr;
+        margin: 0 -15px;
+        /* Break out of container padding */
+        width: calc(100% + 30px);
+        /* Fill screen width */
     }
 
-    .notice-grid {
-        grid-template-columns: 1fr;
+    /* Reset inner items to be full width blocks */
+    .intro-card,
+    .ng-item,
+    .quick-card {
+        margin-bottom: 20px;
+        border-radius: 0;
+        /* Align with flat full-width look */
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        /* Optional: Cleaner look */
+        width: 100%;
+    }
+
+    /* Adjust Content Padding to align with Header (15px) */
+    .ng-content {
+        padding: 20px 15px;
+        /* Critical alignment fix */
+    }
+
+    .intro-text {
+        padding: 20px 15px;
+    }
+
+    /* Ensure images cover full width */
+    .ng-img,
+    .intro-img {
+        width: 100%;
+        border-radius: 0;
     }
 }
 
