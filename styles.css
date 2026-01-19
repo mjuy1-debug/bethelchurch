@@ -577,6 +577,23 @@ h6 {
 }
 
 @media (max-width: 768px) {
+
+    /* Global Compact Overrides */
+    .section {
+        padding: 40px 0;
+        /* Reduced from 80px/120px */
+    }
+
+    .section-header {
+        margin-bottom: 30px;
+        /* Reduced from 60px */
+    }
+
+    .footer {
+        padding: 40px 0;
+        /* Reduced from 80px */
+    }
+
     .org-grid {
         display: flex !important;
         overflow-x: auto;
