@@ -1,54 +1,54 @@
 /* Design System & Variables */
 :root {
-    /* Colors - Premium "Midnight Blue & Gold" Theme */
-    --primary-color: #0F2449;
-    /* Deep Midnight Blue */
-    --secondary-color: #D4AF37;
-    /* Sophisticated Gold */
-    --secondary-hover: #b49023;
-    /* Darker Gold for hover */
-    --accent-blue: #5D8BF4;
-    /* Soft Blue accent for links/buttons if needed */
+    /* Colors - Modern Clean Theme (Apple/Startup Style) */
+    --primary-color: #111827;
+    /* Dark Slate / Charcoal (Modern Black) */
+    --secondary-color: #3B82F6;
+    /* Vivid Blue (Digital First) */
+    --secondary-hover: #2563EB;
+    /* Deep Blue Hover */
+    --accent-gray: #F3F4F6;
+    /* Cool Gray for backgrounds */
 
     --bg-color: #FFFFFF;
     --bg-light: #F9FAFB;
-    /* Very subtle cool gray */
-    --bg-warm: #FDFBF7;
-    /* Warm beige backbone for sections */
+    --bg-warm: #FFFFFF;
+    /* No more warm beige, sticking to clean white/gray */
 
-    --text-main: #1A1A1A;
-    /* Softer black */
-    --text-sub: #555555;
+    --text-main: #1F2937;
+    /* Cool Gray 800 */
+    --text-sub: #6B7280;
+    /* Cool Gray 500 */
     --white: #FFFFFF;
 
-    /* Fonts */
-    --font-heading: 'Noto Serif KR', serif;
-    /* Serif for headings (Premium) */
+    /* Fonts - Clean Sans-serif everywhere */
+    --font-heading: 'Noto Sans KR', sans-serif;
     --font-body: 'Noto Sans KR', sans-serif;
-    /* Sans for readability */
     --font-serif: 'Noto Serif KR', serif;
+    /* Kept only for very specific quotes if needed */
 
     /* Typography Settings */
     --base-font-size: 16px;
     --hero-title-size: 4.5rem;
-    /* Slightly smaller but more elegant */
-    --hero-title-spacing: -0.02em;
-    --hero-title-line-height: 1.2;
+    --hero-title-spacing: -0.03em;
+    /* Tighter tracking for modern look */
+    --hero-title-line-height: 1.1;
     --hero-subtitle-size: 1.6rem;
-    --hero-subtitle-spacing: 0.1em;
-    --hero-desc-size: 1.2rem;
-    --section-title-size: 2.2rem;
+    --hero-subtitle-spacing: 0;
+    --hero-desc-size: 1.25rem;
+    --section-title-size: 2.25rem;
 
-    /* Effects */
-    --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 20px 50px -12px rgba(15, 36, 73, 0.18);
-    --glass-bg: rgba(255, 255, 255, 0.9);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
-    --backdrop-blur: blur(12px);
+    /* Effects - Minimalist */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: 1px solid rgba(229, 231, 235, 0.5);
+    --backdrop-blur: blur(8px);
 
-    --border-radius: 12px;
-    /* refined radius */
-    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --border-radius: 16px;
+    /* Smooth modern radius */
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Faster, snappier transition */
 }
 
 /* Reset & Base Styles */
@@ -113,14 +113,15 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
-    /* Bold Serif */
-    line-height: 1.3;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    /* Extra Bold for modern impact */
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--primary-color);
 }
 
 .section-header {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -136,20 +137,13 @@ h6 {
     font-size: var(--section-title-size);
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 15px;
-    /* Space for underline */
+    padding-bottom: 0;
 }
 
-/* Elegant Underline for Titles */
+/* Minimalist Underline - Just a small dash or none */
 .section-header .title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    /* Small refined line */
-    height: 3px;
-    background-color: var(--secondary-color);
+    display: none;
+    /* Removing the line for cleaner look */
 }
 
 .section-header.text-center .title::after {
@@ -159,26 +153,31 @@ h6 {
 
 .section-header .desc {
     font-family: var(--font-body);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-sub);
-    margin-top: 15px;
-    font-weight: 300;
-    letter-spacing: 0.02em;
+    margin-top: 12px;
+    font-weight: 400;
 }
 
 .view-more {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-sub);
+    color: var(--secondary-color);
+    /* Use Secondary Blue */
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     transition: var(--transition);
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: var(--bg-light);
 }
 
 .view-more:hover {
-    color: var(--secondary-color);
+    background-color: rgba(59, 130, 246, 0.1);
+    /* Subtle blue tint bg */
+    transform: translateX(2px);
 }
 
 /* Header */
@@ -955,11 +954,13 @@ h6 {
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.5s ease-out;
+    /* Snappier */
 }
 
 .ng-item:hover .ng-img {
-    transform: scale(1.08);
+    transform: scale(1.05);
+    /* Subtle zoom */
 }
 
 .ng-content {
@@ -968,33 +969,31 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
-    /* Improved gradient */
+    background: rgba(0, 0, 0, 0.3);
+    /* Lighter dark tint usually */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+    /* Cleaner gradient */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* Align to bottom */
     align-items: center;
-    /* Center horizontally */
-    padding-bottom: 40px;
-    /* Space from bottom */
+    padding-bottom: 30px;
     color: var(--white);
     text-align: center;
     transition: var(--transition);
 }
 
 .ng-item:hover .ng-content {
-    background: linear-gradient(to top, rgba(15, 36, 73, 0.9) 0%, rgba(15, 36, 73, 0.3) 100%);
-    /* Blue tint on hover */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%);
+    /* Just slightly darker */
 }
 
 .ng-content h3 {
     font-family: var(--font-heading);
-    /* Serif */
-    font-size: 1.8rem;
-    /* Adjusted for smaller card */
-    margin-bottom: 8px;
-    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 4px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .ng-content p {
@@ -1002,33 +1001,30 @@ h6 {
     font-size: 1rem;
     margin-bottom: 20px;
     opacity: 0.9;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .btn-text {
-    color: var(--secondary-color);
-    /* Gold accent */
+    color: var(--white);
     font-weight: 600;
-    border-bottom: 1px solid var(--secondary-color);
-    padding-bottom: 2px;
     font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     transition: var(--transition);
 }
 
 .btn-text:hover {
-    color: var(--white);
-    border-bottom-color: var(--white);
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
 }
 
 .btn-text i {
     font-size: 0.8rem;
     margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.btn-text:hover i {
-    transform: translateX(4px);
 }
 
 /* Notice Section */
