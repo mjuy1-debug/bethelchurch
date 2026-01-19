@@ -425,6 +425,36 @@ h6 {
     }
 }
 
+/* Swipe Hint Animation */
+@keyframes swipeHint {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+.swipe-hint {
+    display: none;
+    /* Hidden by default */
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+
+.swipe-hint i {
+    color: var(--secondary-color);
+    animation: swipeHint 1.5s infinite ease-in-out;
+}
+
 /* Quick Links Section */
 .quick-links {
     margin-top: -80px;
@@ -592,6 +622,11 @@ h6 {
     /* Utility to hide BR tags on mobile for natural text flow */
     .desktop-only-br {
         display: none;
+    }
+
+    /* Show Swipe Hint on Mobile */
+    .swipe-hint {
+        display: flex;
     }
 
     /* Global Compact Overrides */
