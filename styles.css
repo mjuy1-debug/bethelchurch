@@ -1435,8 +1435,7 @@ h6 {
 
     /* Reset inner items to be full width blocks */
     .intro-card,
-    .ng-item,
-    .quick-card {
+    .ng-item {
         margin-bottom: 20px;
         border-radius: 0;
         /* Align with flat full-width look */
@@ -1445,6 +1444,18 @@ h6 {
         box-shadow: none;
         /* Optional: Cleaner look */
         width: 100%;
+    }
+
+    /* Quick Card rounded style on mobile */
+    .quick-card {
+        margin-bottom: 0;
+        border-radius: 12px;
+        /* Restore rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        /* Slight shadow for card feel */
+        width: 100%;
+        aspect-ratio: auto;
+        /* Let content dictate height or keep default */
     }
 
     /* Adjust Content Padding to align with Header (15px) */
