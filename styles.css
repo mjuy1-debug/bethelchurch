@@ -1402,18 +1402,27 @@ h6 {
 
     .sermon-content {
         grid-template-columns: 1fr;
-        padding: 30px 20px;
-        /* Reduce padding for mobile */
+        padding: 20px 15px;
+        /* Compact padding */
         text-align: center;
-        /* Ensure text is centered */
+        gap: 20px;
+        /* Reduced gap between video and info */
     }
 
     .sermon-content .sermon-info {
-        padding: 20px 0 0 0;
-        /* Adjust padding for stacked layout */
+        padding: 10px 0 0 0;
+        /* Minimal top padding */
         align-items: center;
-        /* Center flex items if column direction */
         text-align: center;
+    }
+
+    /* Compact margins for inner elements on mobile */
+    .sermon-scripture {
+        margin-bottom: 15px;
+    }
+
+    .sermon-preacher {
+        margin-bottom: 20px;
     }
 
     .intro-grid,
