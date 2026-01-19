@@ -578,6 +578,11 @@ h6 {
 
 @media (max-width: 768px) {
 
+    /* Utility to hide BR tags on mobile for natural text flow */
+    .desktop-only-br {
+        display: none;
+    }
+
     /* Global Compact Overrides */
     .section {
         padding: 40px 0;
