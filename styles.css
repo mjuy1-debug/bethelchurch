@@ -630,6 +630,17 @@ h6 {
         /* Reduced from 0.95rem */
     }
 
+    /* Remove bottom margin from last items to tighten section gaps */
+    .intro-grid>*:last-child,
+    .next-gen-grid>.ng-item:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* Ensure Vision Cards don't have extra space */
+    .vision-cards .v-card:last-child {
+        margin-bottom: 0;
+    }
+
     .org-grid {
         display: flex !important;
         overflow-x: auto;
