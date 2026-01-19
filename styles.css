@@ -1,43 +1,54 @@
 /* Design System & Variables */
 :root {
-    /* Colors */
-    --primary-color: #1D3A6F;
-    /* Deep Navy */
-    --secondary-color: #3E7BFA;
-    /* Royal Blue */
-    --accent-color: #F4E1D2;
-    /* Cream Gold (Subtle) */
+    /* Colors - Premium "Midnight Blue & Gold" Theme */
+    --primary-color: #0F2449;
+    /* Deep Midnight Blue */
+    --secondary-color: #D4AF37;
+    /* Sophisticated Gold */
+    --secondary-hover: #b49023;
+    /* Darker Gold for hover */
+    --accent-blue: #5D8BF4;
+    /* Soft Blue accent for links/buttons if needed */
+
     --bg-color: #FFFFFF;
-    --bg-light: #F2F5FA;
-    /* Light Blue Grey */
-    --text-main: #222222;
-    --text-sub: #666666;
+    --bg-light: #F9FAFB;
+    /* Very subtle cool gray */
+    --bg-warm: #FDFBF7;
+    /* Warm beige backbone for sections */
+
+    --text-main: #1A1A1A;
+    /* Softer black */
+    --text-sub: #555555;
     --white: #FFFFFF;
 
     /* Fonts */
-    --font-heading: 'Noto Sans KR', sans-serif;
+    --font-heading: 'Noto Serif KR', serif;
+    /* Serif for headings (Premium) */
     --font-body: 'Noto Sans KR', sans-serif;
+    /* Sans for readability */
     --font-serif: 'Noto Serif KR', serif;
 
-    /* Typography Settings (Default) */
+    /* Typography Settings */
     --base-font-size: 16px;
-    --hero-title-size: 5rem;
-    --hero-title-spacing: 0;
-    --hero-title-line-height: 1.1;
-    --hero-subtitle-size: 1.8rem;
-    --hero-subtitle-spacing: 0;
-    --hero-desc-size: 1.4rem;
-    --section-title-size: 2.5rem;
+    --hero-title-size: 4.5rem;
+    /* Slightly smaller but more elegant */
+    --hero-title-spacing: -0.02em;
+    --hero-title-line-height: 1.2;
+    --hero-subtitle-size: 1.6rem;
+    --hero-subtitle-spacing: 0.1em;
+    --hero-desc-size: 1.2rem;
+    --section-title-size: 2.2rem;
 
     /* Effects */
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 20px 40px rgba(29, 58, 111, 0.15);
-    --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
-    --backdrop-blur: blur(10px);
+    --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 50px -12px rgba(15, 36, 73, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+    --backdrop-blur: blur(12px);
 
-    --border-radius: 24px;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --border-radius: 12px;
+    /* refined radius */
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Reset & Base Styles */
@@ -103,15 +114,17 @@ h5,
 h6 {
     font-family: var(--font-heading);
     font-weight: 700;
+    /* Bold Serif */
     line-height: 1.3;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .section-header {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    position: relative;
 }
 
 .section-header.text-center {
@@ -123,21 +136,45 @@ h6 {
     font-size: var(--section-title-size);
     color: var(--primary-color);
     position: relative;
+    padding-bottom: 15px;
+    /* Space for underline */
+}
+
+/* Elegant Underline for Titles */
+.section-header .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    /* Small refined line */
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.section-header.text-center .title::after {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .section-header .desc {
-    font-size: 1.1rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
     color: var(--text-sub);
-    margin-top: 10px;
+    margin-top: 15px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 .view-more {
-    font-size: 1rem;
-    font-weight: 500;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--text-sub);
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: var(--transition);
 }
 
 .view-more:hover {
@@ -898,15 +935,19 @@ h6 {
 .next-gen-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 24px;
+    /* Slightly tighter gap */
 }
 
 .ng-item {
     position: relative;
-    height: 400px;
+    height: 300px;
+    /* Reduced from 400px */
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    /* Suggest interaction */
 }
 
 .ng-img {
@@ -914,11 +955,11 @@ h6 {
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.6s ease;
+    transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ng-item:hover .ng-img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .ng-content {
@@ -927,36 +968,67 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+    /* Improved gradient */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    /* Align to bottom */
     align-items: center;
+    /* Center horizontally */
+    padding-bottom: 40px;
+    /* Space from bottom */
     color: var(--white);
     text-align: center;
     transition: var(--transition);
 }
 
 .ng-item:hover .ng-content {
-    background: rgba(29, 58, 111, 0.7);
+    background: linear-gradient(to top, rgba(15, 36, 73, 0.9) 0%, rgba(15, 36, 73, 0.3) 100%);
+    /* Blue tint on hover */
 }
 
 .ng-content h3 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    /* Serif */
+    font-size: 1.8rem;
+    /* Adjusted for smaller card */
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .ng-content p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 20px;
     opacity: 0.9;
+    font-weight: 300;
 }
 
 .btn-text {
+    color: var(--secondary-color);
+    /* Gold accent */
+    font-weight: 600;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 2px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+.btn-text:hover {
     color: var(--white);
-    font-weight: 700;
-    border-bottom: 2px solid var(--white);
-    padding-bottom: 5px;
+    border-bottom-color: var(--white);
+}
+
+.btn-text i {
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.btn-text:hover i {
+    transform: translateX(4px);
 }
 
 /* Notice Section */
