@@ -1553,10 +1553,17 @@ h6 {
         height: 250px;
     }
 
-    /* Notice Alignment Fix */
+    /* Notice Alignment Fix - Full Bleed */
     .notice-board,
     .schedule-board {
-        padding: 20px;
+        margin: 0 -15px;
+        width: calc(100% + 30px);
+        border-radius: 0;
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+        padding: 20px 15px;
+        /* Aligns text with header (15px global padding) */
     }
 }
 
