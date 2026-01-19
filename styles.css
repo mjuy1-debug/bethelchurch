@@ -1542,6 +1542,12 @@ h6 {
     .ng-detail-img {
         height: 250px;
     }
+
+    /* Notice Alignment Fix */
+    .notice-board,
+    .schedule-board {
+        padding: 20px;
+    }
 }
 
 /* Worship Schedule Styles */
