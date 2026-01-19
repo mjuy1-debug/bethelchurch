@@ -1412,7 +1412,6 @@ h6 {
 
     .intro-grid,
     .next-gen-grid,
-    .quick-links-grid,
     .notice-grid {
         display: block;
         /* Ensure block layout for easy stacking */
@@ -1421,6 +1420,17 @@ h6 {
         /* Break out of container padding */
         width: calc(100% + 30px);
         /* Fill screen width */
+    }
+
+    /* Quick Links Specific Layout (2 Columns) */
+    .quick-links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 0 -15px;
+        width: calc(100% + 30px);
+        padding: 0 15px;
+        /* Inner padding to align text with header */
     }
 
     /* Reset inner items to be full width blocks */
