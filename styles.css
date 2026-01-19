@@ -1421,9 +1421,19 @@ h6 {
 
 @media (max-width: 768px) {
     .header-container {
-        padding: 0 30px;
+        padding: 0 15px;
+        /* Reduced from 30px to align with container */
         height: 60px;
-        /* Reduced from 80px */
+    }
+
+    .container {
+        padding: 0 15px;
+        /* Reduced from 24px for full width look */
+    }
+
+    .section {
+        padding: 60px 0;
+        /* Reduced vertical spacing */
     }
 
     .nav {
