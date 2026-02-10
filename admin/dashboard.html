@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>관리자 ?�?�보??- ?�도벧엘교회</title>
+    <title>관리자 대시보드 - 화도벧엘교회</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -275,34 +275,34 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h2>?�도벧엘교회 관리자</h2>
+            <h2>화도벧엘교회 관리자</h2>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="nav-item active" data-target="home"><i class="fas fa-home"></i> ??(메인)</a></li>
-            <li><a href="#" class="nav-item" data-target="design"><i class="fas fa-paint-brush"></i> ?�자???�정</a></li>
-            <li><a href="#" class="nav-item" data-target="about"><i class="fas fa-info-circle"></i> 교회?�개</a></li>
-            <li><a href="#" class="nav-item" data-target="worship"><i class="fas fa-clock"></i> ?�배?�내</a></li>
-            <li><a href="#" class="nav-item" data-target="nextgen"><i class="fas fa-child"></i> ?�음?��?</a></li>
-            <li><a href="#" class="nav-item" data-target="org"><i class="fas fa-sitemap"></i> 교회 기�?</a></li>
-            <li><a href="#" class="nav-item" data-target="philippines"><i class="fas fa-globe-asia"></i> ?�리?� ?�교</a></li>
-            <li><a href="#" class="nav-item" data-target="sermon"><i class="fas fa-bible"></i> ?�교관�?/a></li>
-            <li><a href="#" class="nav-item" data-target="notice"><i class="fas fa-bullhorn"></i> 공�??�항</a></li>
-            <li><a href="#" class="nav-item" data-target="pagebuilder"><i class="fas fa-layer-group"></i> ?�이지 빌더</a>
+            <li><a href="#" class="nav-item active" data-target="home"><i class="fas fa-home"></i> 홈 (메인)</a></li>
+            <li><a href="#" class="nav-item" data-target="design"><i class="fas fa-paint-brush"></i> 디자인 설정</a></li>
+            <li><a href="#" class="nav-item" data-target="about"><i class="fas fa-info-circle"></i> 교회소개</a></li>
+            <li><a href="#" class="nav-item" data-target="worship"><i class="fas fa-clock"></i> 예배안내</a></li>
+            <li><a href="#" class="nav-item" data-target="nextgen"><i class="fas fa-child"></i> 다음세대</a></li>
+            <li><a href="#" class="nav-item" data-target="org"><i class="fas fa-sitemap"></i> 교회 기관</a></li>
+            <li><a href="#" class="nav-item" data-target="philippines"><i class="fas fa-globe-asia"></i> 필리핀 선교</a></li>
+            <li><a href="#" class="nav-item" data-target="sermon"><i class="fas fa-bible"></i> 설교관리</a></li>
+            <li><a href="#" class="nav-item" data-target="notice"><i class="fas fa-bullhorn"></i> 공지사항</a></li>
+            <li><a href="#" class="nav-item" data-target="pagebuilder"><i class="fas fa-layer-group"></i> 페이지 빌더</a>
             </li>
         </ul>
         <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-            <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> 로그?�웃</button>
+            <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> 로그아웃</button>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h1 class="page-title" id="pageTitle">??(메인) 관�?/h1>
+            <h1 class="page-title" id="pageTitle">홈 (메인) 관리</h1>
             <div style="display: flex; gap: 10px;">
                 <button id="exportBtn" class="btn-save" style="background-color: #27ae60;"><i
-                        class="fas fa-file-export"></i> ?�정 ?�일�??�??/button>
-                <button id="saveBtn" class="btn-save"><i class="fas fa-save"></i> 변경사???�??/button>
+                        class="fas fa-file-export"></i> 설정 파일로 저장</button>
+                <button id="saveBtn" class="btn-save"><i class="fas fa-save"></i> 변경사항 저장</button>
             </div>
         </div>
 
@@ -312,88 +312,88 @@
                 <div class="admin-card">
                     <h3 class="card-title">메인 배너 (Hero Section)</h3>
                     <div class="form-group">
-                        <label>배너 배경 ?��?지</label>
+                        <label>배너 배경 이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="heroBgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="heroBgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
                             <input type="hidden" name="hero-bg">
-                            <p class="helper-text">?��?지�??�택?�면 ?�래??미리보기가 ?�시?�니??</p>
+                            <p class="helper-text">이미지를 선택하면 아래에 미리보기가 표시됩니다.</p>
                             <img id="heroBgPreview" src="" alt="Preview">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>메인 ?�?��?</label>
-                        <textarea name="hero-title" placeholder="?�나?�이 기뻐?�시??교회" style="height: 80px;"></textarea>
+                        <label>메인 타이틀</label>
+                        <textarea name="hero-title" placeholder="하나님이 기뻐하시는 교회" style="height: 80px;"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>?�브 ?�?��?</label>
-                        <input type="text" name="hero-subtitle" placeholder="?�도벧엘교회???�신 것을 ?�영?�니??>
+                        <label>서브 타이틀</label>
+                        <input type="text" name="hero-subtitle" placeholder="화도벧엘교회에 오신 것을 환영합니다">
                     </div>
                     <div class="form-group">
-                        <label>?�명 문구</label>
-                        <textarea name="hero-desc" placeholder="?�나?�의 ?�재가 가?�한 ?�곳?�로 ?�러분을 초�??�니??"
+                        <label>설명 문구</label>
+                        <textarea name="hero-desc" placeholder="하나님의 임재가 가득한 이곳으로 여러분을 초대합니다."
                             style="height: 80px;"></textarea>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">바로가�?(Quick Links)</h3>
+                    <h3 class="card-title">바로가기 (Quick Links)</h3>
                     <div class="form-group">
-                        <label>바로가�?1 (?�목/?�명)</label>
+                        <label>바로가기 1 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="link-1-title" placeholder="주일?�배">
-                            <input type="text" name="link-1-desc" placeholder="거룩???�배???�리">
+                            <input type="text" name="link-1-title" placeholder="주일예배">
+                            <input type="text" name="link-1-desc" placeholder="거룩한 예배의 자리">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>바로가�?2 (?�목/?�명)</label>
+                        <label>바로가기 2 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="link-2-title" placeholder="?�늘??말�?">
-                            <input type="text" name="link-2-desc" placeholder="매일???�적 ?�식">
+                            <input type="text" name="link-2-title" placeholder="오늘의 말씀">
+                            <input type="text" name="link-2-desc" placeholder="매일의 영적 양식">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>바로가�?3 (?�목/?�명)</label>
+                        <label>바로가기 3 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="link-3-title" placeholder="가?�예�?>
-                            <input type="text" name="link-3-desc" placeholder="가?�이 바로 교회?�니??>
+                            <input type="text" name="link-3-title" placeholder="가정예배">
+                            <input type="text" name="link-3-desc" placeholder="가정이 바로 교회입니다">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>바로가�?4 (?�목/?�명)</label>
+                        <label>바로가기 4 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="link-4-title" placeholder="?��?�??�내">
-                            <input type="text" name="link-4-desc" placeholder="?�영?�고 축복?�니??>
+                            <input type="text" name="link-4-title" placeholder="새가족 안내">
+                            <input type="text" name="link-4-desc" placeholder="환영하고 축복합니다">
                         </div>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�영 메시지</h3>
+                    <h3 class="card-title">환영 메시지</h3>
                     <div class="form-group">
-                        <label>?�영 ?�목</label>
-                        <input type="text" name="welcome-title" placeholder="?�영?�니??>
+                        <label>환영 제목</label>
+                        <input type="text" name="welcome-title" placeholder="환영합니다">
                     </div>
                     <div class="form-group">
-                        <label>?�영 ?�용</label>
-                        <textarea name="welcome-desc" placeholder="교회 ?�개 �??�영 메시지�??�력?�세??"></textarea>
+                        <label>환영 내용</label>
+                        <textarea name="welcome-desc" placeholder="교회 소개 및 환영 메시지를 입력하세요."></textarea>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">목회???�사 (메인 ?�면??</h3>
+                    <h3 class="card-title">목회자 인사 (메인 화면용)</h3>
                     <div class="form-group">
-                        <label>?�사�?(?�용�?</label>
-                        <textarea name="pastor-quote" placeholder="?�직 ?�수 그리?�도??복음만이 ?�망?�니??
+                        <label>인사말 (인용구)</label>
+                        <textarea name="pastor-quote" placeholder="오직 예수 그리스도의 복음만이 희망입니다"
                             style="height: 100px;"></textarea>
 
                         <div
                             style="background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 8px; margin-top: 5px;">
-                            <label style="margin-bottom: 5px; font-size: 0.9rem; color: #666;">?�스???��???/label>
+                            <label style="margin-bottom: 5px; font-size: 0.9rem; color: #666;">텍스트 스타일</label>
                             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
                                 <select name="style-pastor-quote-font"
                                     style="width: auto; padding: 5px; font-size: 0.9rem;">
@@ -412,32 +412,32 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>목사???�름/직함</label>
-                        <input type="text" name="pastor-name" placeholder="?�도벧엘교회 ?�임목사 김?�주">
+                        <label>목사님 이름/직함</label>
+                        <input type="text" name="pastor-name" placeholder="화도벧엘교회 담임목사 김석주">
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">교회 비전 (3?� 비전)</h3>
+                    <h3 class="card-title">교회 비전 (3대 비전)</h3>
                     <div class="form-group">
-                        <label>비전 1 (?�목/?�명)</label>
+                        <label>비전 1 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="vision-1-title" placeholder="복음???�력">
-                            <input type="text" name="vision-1-desc" placeholder="??��가???�랑???�하??교회">
+                            <input type="text" name="vision-1-title" placeholder="복음의 능력">
+                            <input type="text" name="vision-1-desc" placeholder="십자가의 사랑을 전하는 교회">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>비전 2 (?�목/?�명)</label>
+                        <label>비전 2 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="vision-2-title" placeholder="?�랑???��?">
-                            <input type="text" name="vision-2-desc" placeholder="?�웃????몸과 같이 ?�랑?�는 교회">
+                            <input type="text" name="vision-2-title" placeholder="사랑의 섬김">
+                            <input type="text" name="vision-2-desc" placeholder="이웃을 내 몸과 같이 사랑하는 교회">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>비전 3 (?�목/?�명)</label>
+                        <label>비전 3 (제목/설명)</label>
                         <div style="display: flex; gap: 10px;">
-                            <input type="text" name="vision-3-title" placeholder="?�계 ?�교">
-                            <input type="text" name="vision-3-desc" placeholder="???�까지 복음???�하??교회">
+                            <input type="text" name="vision-3-title" placeholder="세계 선교">
+                            <input type="text" name="vision-3-desc" placeholder="땅 끝까지 복음을 전하는 교회">
                         </div>
                     </div>
                 </div>
@@ -446,20 +446,20 @@
             <!-- DESIGN TAB -->
             <div id="design" class="tab-content">
                 <div class="admin-card">
-                    <h3 class="card-title">?�트 �??�?�포그래???�정</h3>
-                    <p class="helper-text" style="margin-bottom: 20px;">?�이???�체??글???�기?� 간격??조정?�니?? (?�위: px, rem, em ??
-                        ?�함?�여 ?�력)</p>
+                    <h3 class="card-title">폰트 및 타이포그래피 설정</h3>
+                    <p class="helper-text" style="margin-bottom: 20px;">사이트 전체의 글자 크기와 간격을 조정합니다. (단위: px, rem, em 등
+                        포함하여 입력)</p>
 
                     <div class="form-group">
-                        <label>기본 글???�기 (Base Font Size)</label>
+                        <label>기본 글자 크기 (Base Font Size)</label>
                         <input type="text" name="style-base-font-size" placeholder="16px">
-                        <p class="helper-text">?�이???�체??기�????�는 글???�기?�니?? (기본�? 16px)</p>
+                        <p class="helper-text">사이트 전체의 기준이 되는 글자 크기입니다. (기본값: 16px)</p>
                     </div>
 
                     <div class="admin-card" style="margin-top: 20px; border: 1px solid #eee; padding: 15px;">
-                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">글로벌 ?�상 ?�정 (Global Colors)</h4>
+                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">글로벌 색상 설정 (Global Colors)</h4>
                         <div class="form-group">
-                            <label>기본 ?�상 (Primary Color - ?�이�?</label>
+                            <label>기본 색상 (Primary Color - 네이비)</label>
                             <div style="display: flex; gap: 10px; align-items: center;">
                                 <input type="color" id="primaryColorPicker"
                                     style="height: 40px; width: 60px; padding: 0;">
@@ -468,7 +468,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>보조 ?�상 (Secondary Color - 블루)</label>
+                            <label>보조 색상 (Secondary Color - 블루)</label>
                             <div style="display: flex; gap: 10px; align-items: center;">
                                 <input type="color" id="secondaryColorPicker"
                                     style="height: 40px; width: 60px; padding: 0;">
@@ -477,7 +477,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>강조 ?�상 (Accent Color - 골드/베이지)</label>
+                            <label>강조 색상 (Accent Color - 골드/베이지)</label>
                             <div style="display: flex; gap: 10px; align-items: center;">
                                 <input type="color" id="accentColorPicker"
                                     style="height: 40px; width: 60px; padding: 0;">
@@ -488,59 +488,59 @@
                     </div>
 
                     <div class="admin-card" style="margin-top: 20px; border: 1px solid #eee; padding: 15px;">
-                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">글�??�정 (Global Fonts)</h4>
+                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">글꼴 설정 (Global Fonts)</h4>
                         <div class="form-group">
-                            <label>?�이??기본 글�?(Font Family)</label>
+                            <label>사이트 기본 글꼴 (Font Family)</label>
                             <select name="style-font-body">
                                 <option value="'Noto Sans KR', sans-serif">Noto Sans KR (기본 - 고딕)</option>
                                 <option value="'Noto Serif KR', serif">Noto Serif KR (명조)</option>
-                                <option value="'Nanum Gothic', sans-serif">?�눔고딕</option>
-                                <option value="'Nanum Myeongjo', serif">?�눔명조</option>
+                                <option value="'Nanum Gothic', sans-serif">나눔고딕</option>
+                                <option value="'Nanum Myeongjo', serif">나눔명조</option>
                             </select>
                         </div>
                     </div>
 
                     <h4 style="margin-top: 20px; margin-bottom: 10px; color: #555;">메인 배너 (Hero)</h4>
                     <div class="form-group">
-                        <label>메인 ?�?��? ?�기</label>
+                        <label>메인 타이틀 크기</label>
                         <input type="text" name="style-hero-title-size" placeholder="5rem">
                     </div>
                     <div class="form-group">
-                        <label>메인 ?�?��? ?�간 (Letter Spacing)</label>
+                        <label>메인 타이틀 자간 (Letter Spacing)</label>
                         <input type="text" name="style-hero-title-spacing" placeholder="0">
                     </div>
                     <div class="form-group">
-                        <label>메인 ?�?��? 줄간�?(Line Height)</label>
+                        <label>메인 타이틀 줄간격 (Line Height)</label>
                         <input type="text" name="style-hero-title-line-height" placeholder="1.1">
                     </div>
 
                     <div class="form-group" style="margin-top: 15px;">
-                        <label>?�브 ?�?��? ?�기</label>
+                        <label>서브 타이틀 크기</label>
                         <input type="text" name="style-hero-subtitle-size" placeholder="1.8rem">
                     </div>
                     <div class="form-group">
-                        <label>?�브 ?�?��? ?�간</label>
+                        <label>서브 타이틀 자간</label>
                         <input type="text" name="style-hero-subtitle-spacing" placeholder="0">
                     </div>
 
                     <div class="form-group" style="margin-top: 15px;">
-                        <label>?�명 문구 ?�기</label>
+                        <label>설명 문구 크기</label>
                         <input type="text" name="style-hero-desc-size" placeholder="1.4rem">
                     </div>
 
-                    <h4 style="margin-top: 20px; margin-bottom: 10px; color: #555;">공통 ?�션</h4>
+                    <h4 style="margin-top: 20px; margin-bottom: 10px; color: #555;">공통 섹션</h4>
                     <div class="form-group">
-                        <label>?�션 ?�목 ?�기</label>
+                        <label>섹션 제목 크기</label>
                         <input type="text" name="style-section-title-size" placeholder="2.5rem">
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�브?�이지 ?�단 ?��?지 (Sub-Page Headers)</h3>
-                    <p class="helper-text" style="margin-bottom: 20px;">�??�브?�이지???�단 배경 ?��?지�??�정?�니??</p>
+                    <h3 class="card-title">서브페이지 상단 이미지 (Sub-Page Headers)</h3>
+                    <p class="helper-text" style="margin-bottom: 20px;">각 서브페이지의 상단 배경 이미지를 설정합니다.</p>
 
                     <div class="form-group">
-                        <label>교회?�개 (Church Intro)</label>
+                        <label>교회소개 (Church Intro)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="headerBgAboutInput" accept="image/*">
                             <div style="margin-top: 5px;">
@@ -553,7 +553,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>?�배?�내 (Worship)</label>
+                        <label>예배안내 (Worship)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="headerBgWorshipInput" accept="image/*">
                             <div style="margin-top: 5px;">
@@ -566,7 +566,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>?�음?��? (Next Gen)</label>
+                        <label>다음세대 (Next Gen)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="headerBgNextgenInput" accept="image/*">
                             <div style="margin-top: 5px;">
@@ -579,7 +579,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>?�리?� ?�교 (Philippines)</label>
+                        <label>필리핀 선교 (Philippines)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="headerBgPhilInput" accept="image/*">
                             <div style="margin-top: 5px;">
@@ -592,7 +592,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>공�??�항 (Notice)</label>
+                        <label>공지사항 (Notice)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="headerBgNoticeInput" accept="image/*">
                             <div style="margin-top: 5px;">
@@ -606,7 +606,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>교회 기�? (Church Org)</label>
+                    <label>교회 기관 (Church Org)</label>
                     <div class="file-upload-wrapper">
                         <input type="file" id="headerBgOrgInput" accept="image/*">
                         <div style="margin-top: 5px;">
@@ -619,7 +619,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>?�도??기본?�활 (Family Life)</label>
+                    <label>성도의 기본생활 (Family Life)</label>
                     <div class="file-upload-wrapper">
                         <input type="file" id="headerBgFamilyInput" accept="image/*">
                         <div style="margin-top: 5px;">
@@ -632,7 +632,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>기도 ?�목�?목표 (Newcomer/Goals)</label>
+                    <label>기도 제목과 목표 (Newcomer/Goals)</label>
                     <div class="file-upload-wrapper">
                         <input type="file" id="headerBgNewcomerInput" accept="image/*">
                         <div style="margin-top: 5px;">
@@ -650,13 +650,13 @@
             <!-- ABOUT TAB -->
             <div id="about" class="tab-content">
                 <div class="admin-card">
-                    <h3 class="card-title">?�임목사 ?�사�?/h3>
+                    <h3 class="card-title">담임목사 인사말</h3>
                     <div class="form-group">
-                        <label>목사???�진</label>
+                        <label>목사님 사진</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="pastorImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="pastorImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -665,12 +665,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea name="about-pastor-greeting-title" placeholder="?�랑?�고 축복?�니??
+                        <textarea name="about-pastor-greeting-title" placeholder="사랑하고 축복합니다"
                             style="height: 80px;"></textarea>
 
                         <div
                             style="background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 8px; margin-top: 5px;">
-                            <label style="margin-bottom: 5px; font-size: 0.9rem; color: #666;">?�?��? ?��???/label>
+                            <label style="margin-bottom: 5px; font-size: 0.9rem; color: #666;">타이틀 스타일</label>
                             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
                                 <select name="style-greeting-title-font"
                                     style="width: auto; padding: 5px; font-size: 0.9rem;">
@@ -689,27 +689,27 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�사�??�용</label>
+                        <label>인사말 내용</label>
                         <textarea name="about-pastor-greeting-text" style="height: 300px;"></textarea>
                     </div>
 
                     <div class="form-group"
                         style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
-                        <label style="margin-bottom: 10px; color: #555;">?�스???��????�정</label>
+                        <label style="margin-bottom: 10px; color: #555;">텍스트 스타일 설정</label>
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                             <div style="flex: 1;">
-                                <label style="font-size: 0.8rem;">?�트</label>
+                                <label style="font-size: 0.8rem;">폰트</label>
                                 <select name="style-pastor-greeting-font">
                                     <option value="'Noto Sans KR', sans-serif">고딕 (기본)</option>
                                     <option value="'Noto Serif KR', serif">명조 (Serif)</option>
                                 </select>
                             </div>
                             <div style="flex: 1;">
-                                <label style="font-size: 0.8rem;">글???�기</label>
+                                <label style="font-size: 0.8rem;">글자 크기</label>
                                 <input type="text" name="style-pastor-greeting-size" placeholder="1.1rem">
                             </div>
                             <div style="flex: 1;">
-                                <label style="font-size: 0.8rem;">글???�상</label>
+                                <label style="font-size: 0.8rem;">글자 색상</label>
                                 <div style="display: flex; gap: 5px;">
                                     <input type="color" id="pastorColorPicker"
                                         style="width: 40px; padding: 0; border: none;">
@@ -717,20 +717,20 @@
                                 </div>
                             </div>
                             <div style="flex: 1;">
-                                <label style="font-size: 0.8rem;">줄간�?/label>
+                                <label style="font-size: 0.8rem;">줄간격</label>
                                 <input type="text" name="style-pastor-greeting-line-height" placeholder="1.8">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="admin-card">
-                    <h3 class="card-title">교회 ?�보 (Footer)</h3>
+                    <h3 class="card-title">교회 정보 (Footer)</h3>
                     <div class="form-group">
                         <label>주소</label>
-                        <input type="text" name="footer-address" placeholder="경기???�양주시...">
+                        <input type="text" name="footer-address" placeholder="경기도 남양주시...">
                     </div>
                     <div class="form-group">
-                        <label>?�화번호 / ?�스</label>
+                        <label>전화번호 / 팩스</label>
                         <input type="text" name="footer-tel" placeholder="TEL: 031-000-0000 | FAX: 031-000-0000">
                     </div>
                 </div>
@@ -739,43 +739,43 @@
             <!-- WORSHIP & SCHEDULE TAB -->
             <div id="worship" class="tab-content">
                 <div class="admin-card">
-                    <h3 class="card-title">메인?�이지 주간 ?�정 (Weekly Schedule)</h3>
+                    <h3 class="card-title">메인페이지 주간 일정 (Weekly Schedule)</h3>
                     <div class="form-row" style="display:flex; gap:10px; margin-bottom:10px;">
                         <div class="form-group" style="flex:1;">
-                            <label>??(Month)</label>
+                            <label>월 (Month)</label>
                             <input type="text" id="weeklyMonth" placeholder="DEC">
                         </div>
                         <div class="form-group" style="flex:1;">
-                            <label>??(Day)</label>
+                            <label>일 (Day)</label>
                             <input type="text" id="weeklyDay" placeholder="07">
                         </div>
                     </div>
-                    <label style="font-weight:500; color:#555; margin-bottom:8px; display:block;">?�정 목록</label>
+                    <label style="font-weight:500; color:#555; margin-bottom:8px; display:block;">일정 목록</label>
                     <div id="weeklyEventsList"
                         style="margin-bottom:15px; border:1px solid #ddd; padding:10px; border-radius:6px; background:#f9f9f9;">
                         <!-- Dynamic items will be added here -->
-                        <p style="color:#888; text-align:center;">?�?�된 ?�정???�습?�다.</p>
+                        <p style="color:#888; text-align:center;">저장된 일정이 없습니다.</p>
                     </div>
                     <div style="display:flex; gap:10px; margin-bottom:10px;">
-                        <input type="text" id="newWeeklyTime" placeholder="?�간 (ex: 09:00)"
+                        <input type="text" id="newWeeklyTime" placeholder="시간 (ex: 09:00)"
                             style="width:120px; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newWeeklyName" placeholder="?�정�?(ex: 1부 주일?�배)"
+                        <input type="text" id="newWeeklyName" placeholder="일정명 (ex: 1부 주일예배)"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
                         <button type="button" id="addWeeklyEventBtn" class="btn-save"
-                            style="padding:8px 15px;">추�?</button>
+                            style="padding:8px 15px;">추가</button>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">주일 ?�배 ?�정 (Sunday Worship)</h3>
+                    <h3 class="card-title">주일 예배 일정 (Sunday Worship)</h3>
                     <div class="table-responsive">
                         <table class="admin-table" style="width:100%; border-collapse: collapse; margin-bottom:15px;">
                             <thead style="background:#f1f1f1;">
                                 <tr>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�간</th>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�배�?/th>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�소</th>
-                                    <th style="padding:10px; border:1px solid #ddd; width:60px; text-align:center;">??��
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">시간</th>
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">예배명</th>
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">장소</th>
+                                    <th style="padding:10px; border:1px solid #ddd; width:60px; text-align:center;">삭제
                                     </th>
                                 </tr>
                             </thead>
@@ -786,28 +786,28 @@
                     </div>
                     <div
                         style="display:flex; gap:10px; background:#f9f9f9; padding:10px; border:1px solid #ddd; border-radius:6px;">
-                        <input type="text" id="newSunTime" placeholder="?�간"
+                        <input type="text" id="newSunTime" placeholder="시간"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newSunName" placeholder="?�배�?
+                        <input type="text" id="newSunName" placeholder="예배명"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newSunPlace" placeholder="?�소"
+                        <input type="text" id="newSunPlace" placeholder="장소"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
                         <button type="button" id="addSunScheduleBtn" class="btn-save"
-                            style="padding:8px 15px;">추�?</button>
+                            style="padding:8px 15px;">추가</button>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�일 ?�배/기도???�정 (Weekday Worship)</h3>
+                    <h3 class="card-title">평일 예배/기도회 일정 (Weekday Worship)</h3>
                     <div class="table-responsive">
                         <table class="admin-table" style="width:100%; border-collapse: collapse; margin-bottom:15px;">
                             <thead style="background:#f1f1f1;">
                                 <tr>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�일</th>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�간</th>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�배�?/th>
-                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">?�소</th>
-                                    <th style="padding:10px; border:1px solid #ddd; width:60px; text-align:center;">??��
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">요일</th>
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">시간</th>
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">예배명</th>
+                                    <th style="padding:10px; border:1px solid #ddd; text-align:left;">장소</th>
+                                    <th style="padding:10px; border:1px solid #ddd; width:60px; text-align:center;">삭제
                                     </th>
                                 </tr>
                             </thead>
@@ -818,16 +818,16 @@
                     </div>
                     <div
                         style="display:flex; gap:10px; background:#f9f9f9; padding:10px; border:1px solid #ddd; border-radius:6px;">
-                        <input type="text" id="newWkDay" placeholder="?�일"
+                        <input type="text" id="newWkDay" placeholder="요일"
                             style="width:80px; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newWkTime" placeholder="?�간"
+                        <input type="text" id="newWkTime" placeholder="시간"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newWkName" placeholder="?�배�?
+                        <input type="text" id="newWkName" placeholder="예배명"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
-                        <input type="text" id="newWkPlace" placeholder="?�소"
+                        <input type="text" id="newWkPlace" placeholder="장소"
                             style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px;">
                         <button type="button" id="addWkScheduleBtn" class="btn-save"
-                            style="padding:8px 15px;">추�?</button>
+                            style="padding:8px 15px;">추가</button>
                     </div>
                 </div>
             </div>
@@ -835,45 +835,45 @@
             <!-- PAGE BUILDER TAB -->
             <div id="pagebuilder" class="tab-content">
                 <div class="admin-card" style="display:flex; flex-direction:column; gap:20px;">
-                    <h3 class="card-title">커스?� ?�이지 관�?(Shortcuts Linked)</h3>
+                    <h3 class="card-title">커스텀 페이지 관리 (Shortcuts Linked)</h3>
 
                     <!-- Page List Section -->
                     <div style="display:flex; gap:15px;">
                         <div style="flex:1; border-right:1px solid #eee; padding-right:15px;">
-                            <h4 style="margin-bottom:10px;">?�이지 목록</h4>
+                            <h4 style="margin-bottom:10px;">페이지 목록</h4>
                             <ul id="customPageList"
                                 style="list-style:none; padding:0; height:200px; overflow-y:auto; border:1px solid #ddd; border-radius:4px; margin-bottom:10px;">
                                 <!-- Dynamic List -->
                             </ul>
-                            <button type="button" id="addNewPageBtn" class="btn-add" style="width:100%;">+ ???�이지
-                                만들�?/button>
+                            <button type="button" id="addNewPageBtn" class="btn-add" style="width:100%;">+ 새 페이지
+                                만들기</button>
                         </div>
 
                         <!-- Shortcut Mapping Section -->
                         <div style="flex:1;">
-                            <h4 style="margin-bottom:10px;">바로가�?Shortcut) ?�결 ?�정</h4>
+                            <h4 style="margin-bottom:10px;">바로가기(Shortcut) 연결 설정</h4>
                             <div class="form-group">
-                                <label>바로가�?1 ?�결</label>
+                                <label>바로가기 1 연결</label>
                                 <select id="shortcut1Link" name="shortcut-1-link" style="width:100%; padding:8px;">
-                                    <option value="">기본 (주일?�배)</option>
+                                    <option value="">기본 (주일예배)</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>바로가�?2 ?�결</label>
+                                <label>바로가기 2 연결</label>
                                 <select id="shortcut2Link" name="shortcut-2-link" style="width:100%; padding:8px;">
-                                    <option value="">기본 (?�늘??말�?)</option>
+                                    <option value="">기본 (오늘의 말씀)</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>바로가�?3 ?�결</label>
+                                <label>바로가기 3 연결</label>
                                 <select id="shortcut3Link" name="shortcut-3-link" style="width:100%; padding:8px;">
-                                    <option value="">기본 (가?�예�?</option>
+                                    <option value="">기본 (가정예배)</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>바로가�?4 ?�결</label>
+                                <label>바로가기 4 연결</label>
                                 <select id="shortcut4Link" name="shortcut-4-link" style="width:100%; padding:8px;">
-                                    <option value="">기본 (?��?�??�내)</option>
+                                    <option value="">기본 (새가족 안내)</option>
                                 </select>
                             </div>
                         </div>
@@ -885,15 +885,15 @@
                         <div
                             style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
                             <div style="display:flex; gap:10px; align-items:center;">
-                                <h4 id="editingPageTitle">?�이지 ?�집</h4>
-                                <input type="text" id="editPageName" placeholder="?�이지 ?�목"
+                                <h4 id="editingPageTitle">페이지 편집</h4>
+                                <input type="text" id="editPageName" placeholder="페이지 제목"
                                     style="padding:5px; border:1px solid #ddd; border-radius:4px;">
                             </div>
                             <div>
                                 <button type="button" id="deletePageBtn" class="btn-delete"
-                                    style="padding:5px 10px; margin-right:10px;">??��</button>
+                                    style="padding:5px 10px; margin-right:10px;">삭제</button>
                                 <button type="button" id="closeEditorBtn"
-                                    style="padding:5px 10px; cursor:pointer;">?�기</button>
+                                    style="padding:5px 10px; cursor:pointer;">닫기</button>
                             </div>
                         </div>
 
@@ -902,14 +902,14 @@
                             <!-- 1. Components Palette -->
                             <div class="builder-palette"
                                 style="width:200px; padding:15px; border-right:1px solid #ccc; background:#f9f9f9; overflow-y:auto;">
-                                <h5 style="margin-bottom:10px; color:#555;">블록 ?�소</h5>
+                                <h5 style="margin-bottom:10px; color:#555;">블록 요소</h5>
                                 <div class="draggable-block" draggable="true" data-type="text"
                                     style="padding:10px; background:#fff; border:1px solid #ddd; margin-bottom:5px; cursor:grab; border-radius:4px;">
-                                    <i class="fas fa-font"></i> ?�스??
+                                    <i class="fas fa-font"></i> 텍스트
                                 </div>
                                 <div class="draggable-block" draggable="true" data-type="image"
                                     style="padding:10px; background:#fff; border:1px solid #ddd; margin-bottom:5px; cursor:grab; border-radius:4px;">
-                                    <i class="fas fa-image"></i> ?��?지
+                                    <i class="fas fa-image"></i> 이미지
                                 </div>
                                 <div class="draggable-block" draggable="true" data-type="button"
                                     style="padding:10px; background:#fff; border:1px solid #ddd; margin-bottom:5px; cursor:grab; border-radius:4px;">
@@ -921,7 +921,7 @@
                                 </div>
                                 <div class="draggable-block" draggable="true" data-type="spacer"
                                     style="padding:10px; background:#fff; border:1px solid #ddd; margin-bottom:5px; cursor:grab; border-radius:4px;">
-                                    <i class="fas fa-arrows-alt-v"></i> ?�백
+                                    <i class="fas fa-arrows-alt-v"></i> 여백
                                 </div>
                             </div>
 
@@ -930,16 +930,16 @@
                                 style="flex:1; padding:20px; background:#f0f2f5; overflow-y:auto; position:relative;">
                                 <div class="canvas-placeholder"
                                     style="text-align:center; color:#888; margin-top:100px; border:2px dashed #ccc; padding:20px;">
-                                    ?�쪽?�서 블록???�래그하???�곳???�으?�요
+                                    왼쪽에서 블록을 드래그하여 이곳에 놓으세요
                                 </div>
                             </div>
 
                             <!-- 3. Style Panel -->
                             <div class="builder-styles" id="stylePanel"
                                 style="width:260px; padding:15px; border-left:1px solid #ccc; background:#fff; overflow-y:auto;">
-                                <h5 style="margin-bottom:15px; color:#555;">?��????�정</h5>
+                                <h5 style="margin-bottom:15px; color:#555;">스타일 설정</h5>
                                 <div id="styleEditorContent">
-                                    <p style="color:#888; font-size:0.9rem;">캔버?�에??블록???�택?�면<br>?�정 메뉴가 ?��??�니??</p>
+                                    <p style="color:#888; font-size:0.9rem;">캔버스에서 블록을 선택하면<br>설정 메뉴가 나타납니다.</p>
                                 </div>
                             </div>
                         </div>
@@ -951,25 +951,25 @@
             <!-- NEXT GEN TAB -->
             <div id="nextgen" class="tab-content">
                 <div class="admin-card">
-                    <h3 class="card-title">?�음?��? (메인 ?�면)</h3>
+                    <h3 class="card-title">다음세대 (메인 화면)</h3>
                     <div class="form-group">
-                        <label>메인 ?�목</label>
-                        <input type="text" name="nextgen-title" placeholder="?�음?��?">
+                        <label>메인 제목</label>
+                        <input type="text" name="nextgen-title" placeholder="다음세대">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <textarea name="nextgen-desc" placeholder="?�도벧엘교회??미래?�자 ?�망?�니?? style="height: 80px;"></textarea>
+                        <label>설명</label>
+                        <textarea name="nextgen-desc" placeholder="화도벧엘교회의 미래이자 희망입니다" style="height: 80px;"></textarea>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">주일?�교 (Sunday School)</h3>
+                    <h3 class="card-title">주일학교 (Sunday School)</h3>
                     <div class="form-group">
-                        <label>배경 ?��?지</label>
+                        <label>배경 이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="ng1ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="ng1ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -978,23 +978,23 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�목</label>
-                        <input type="text" name="ng-1-title" placeholder="주일?�교">
+                        <label>제목</label>
+                        <input type="text" name="ng-1-title" placeholder="주일학교">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="ng-1-desc" placeholder="말�??�로 ?�라?�는 ?�이??>
+                        <label>설명</label>
+                        <input type="text" name="ng-1-desc" placeholder="말씀으로 자라나는 아이들">
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�생부 (Student Ministry)</h3>
+                    <h3 class="card-title">학생부 (Student Ministry)</h3>
                     <div class="form-group">
-                        <label>배경 ?��?지</label>
+                        <label>배경 이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="ng3ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="ng3ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1003,23 +1003,23 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�목</label>
-                        <input type="text" name="ng-3-title" placeholder="?�생부">
+                        <label>제목</label>
+                        <input type="text" name="ng-3-title" placeholder="학생부">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="ng-3-desc" placeholder="꿈을 꾸는 ?�음?��?">
+                        <label>설명</label>
+                        <input type="text" name="ng-3-desc" placeholder="꿈을 꾸는 다음세대">
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">�?��부 (Young Adults)</h3>
+                    <h3 class="card-title">청년부 (Young Adults)</h3>
                     <div class="form-group">
-                        <label>배경 ?��?지</label>
+                        <label>배경 이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="ng2ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="ng2ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1028,12 +1028,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�목</label>
-                        <input type="text" name="ng-2-title" placeholder="�?��부">
+                        <label>제목</label>
+                        <input type="text" name="ng-2-title" placeholder="청년부">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="ng-2-desc" placeholder="?�상??변?�시?�는 �?��??>
+                        <label>설명</label>
+                        <input type="text" name="ng-2-desc" placeholder="세상을 변화시키는 청년들">
                     </div>
                 </div>
             </div>
@@ -1043,11 +1043,11 @@
                 <div class="admin-card">
                     <h3 class="card-title">비난고난벧엘교회 (Binangonan)</h3>
                     <div class="form-group">
-                        <label>교회 ?�진</label>
+                        <label>교회 사진</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="phil1ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="phil1ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1056,32 +1056,32 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>교회 ?�름</label>
+                        <label>교회 이름</label>
                         <input type="text" name="phil-1-title" placeholder="비난고난벧엘교회">
                     </div>
                     <div class="form-group">
-                        <label>?�당 ?�역??/label>
+                        <label>담당 사역자</label>
                         <input type="text" name="phil-1-pastor" placeholder="June Pastor">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <textarea name="phil-1-desc" style="height: 100px;" placeholder="?�개글..."></textarea>
+                        <label>설명</label>
+                        <textarea name="phil-1-desc" style="height: 100px;" placeholder="소개글..."></textarea>
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�용 (Detail Page)</label>
+                        <label>상세 내용 (Detail Page)</label>
                         <textarea name="phil-1-detail-desc" style="height: 200px;"
-                            placeholder="?�세 ?�이지???�시??�??�용???�력?�세??"></textarea>
+                            placeholder="상세 페이지에 표시될 긴 내용을 입력하세요."></textarea>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�라?�벧?�교??(Palawan)</h3>
+                    <h3 class="card-title">팔라완벧엘교회 (Palawan)</h3>
                     <div class="form-group">
-                        <label>교회 ?�진</label>
+                        <label>교회 사진</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="phil2ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="phil2ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1090,32 +1090,32 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>교회 ?�름</label>
-                        <input type="text" name="phil-2-title" placeholder="?�라?�벧?�교??>
+                        <label>교회 이름</label>
+                        <input type="text" name="phil-2-title" placeholder="팔라완벧엘교회">
                     </div>
                     <div class="form-group">
-                        <label>?�당 ?�역??/label>
+                        <label>담당 사역자</label>
                         <input type="text" name="phil-2-pastor" placeholder="Kenniel Pastor">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <textarea name="phil-2-desc" style="height: 100px;" placeholder="?�개글..."></textarea>
+                        <label>설명</label>
+                        <textarea name="phil-2-desc" style="height: 100px;" placeholder="소개글..."></textarea>
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�용 (Detail Page)</label>
+                        <label>상세 내용 (Detail Page)</label>
                         <textarea name="phil-2-detail-desc" style="height: 200px;"
-                            placeholder="?�세 ?�이지???�시??�??�용???�력?�세??"></textarea>
+                            placeholder="상세 페이지에 표시될 긴 내용을 입력하세요."></textarea>
                     </div>
                 </div>
 
                 <div class="admin-card">
-                    <h3 class="card-title">?�보?�?�벧?�교??(Navotas)</h3>
+                    <h3 class="card-title">나보타스벧엘교회 (Navotas)</h3>
                     <div class="form-group">
-                        <label>교회 ?�진</label>
+                        <label>교회 사진</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="phil3ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="phil3ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1124,21 +1124,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>교회 ?�름</label>
-                        <input type="text" name="phil-3-title" placeholder="?�보?�?�벧?�교??>
+                        <label>교회 이름</label>
+                        <input type="text" name="phil-3-title" placeholder="나보타스벧엘교회">
                     </div>
                     <div class="form-group">
-                        <label>?�당 ?�역??/label>
+                        <label>담당 사역자</label>
                         <input type="text" name="phil-3-pastor" placeholder="Predley Pastor">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <textarea name="phil-3-desc" style="height: 100px;" placeholder="?�개글..."></textarea>
+                        <label>설명</label>
+                        <textarea name="phil-3-desc" style="height: 100px;" placeholder="소개글..."></textarea>
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�용 (Detail Page)</label>
+                        <label>상세 내용 (Detail Page)</label>
                         <textarea name="phil-3-detail-desc" style="height: 200px;"
-                            placeholder="?�세 ?�이지???�시??�??�용???�력?�세??"></textarea>
+                            placeholder="상세 페이지에 표시될 긴 내용을 입력하세요."></textarea>
                     </div>
                 </div>
             </div>
@@ -1147,19 +1147,19 @@
             <!-- ORGANIZATIONS TAB -->
             <div id="org" class="tab-content">
                 <div class="admin-card">
-                    <h3 class="card-title">교회 기�? (Organizations)</h3>
-                    <p class="helper-text">갈렙/?�호?�아 ?�전?�회, ?�오�?루디???�안???�전?�회</p>
+                    <h3 class="card-title">교회 기관 (Organizations)</h3>
+                    <p class="helper-text">갈렙/여호수아 남전도회, 나오미/루디아/요안나 여전도회</p>
                 </div>
 
                 <!-- Org 1 -->
                 <div class="admin-card">
-                    <h3 class="card-title">1. 갈렙?�전?�회</h3>
+                    <h3 class="card-title">1. 갈렙남전도회</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org1ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org1ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1168,20 +1168,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-1-title" placeholder="갈렙?�전?�회">
+                        <label>이름</label>
+                        <input type="text" name="org-1-title" placeholder="갈렙남전도회">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-1-desc" placeholder="믿음???�사??>
+                        <label>설명</label>
+                        <input type="text" name="org-1-desc" placeholder="믿음의 용사들">
                     </div>
                     <div class="form-group">
-                        <label>?�당 교역??/label>
-                        <input type="text" name="org-1-pastor" placeholder="?�당 교역???�름">
+                        <label>담당 교역자</label>
+                        <input type="text" name="org-1-pastor" placeholder="담당 교역자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-1-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-1-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
 
@@ -1189,13 +1189,13 @@
 
                 <!-- Org 2 -->
                 <div class="admin-card">
-                    <h3 class="card-title">2. ?�호?�아?�전?�회</h3>
+                    <h3 class="card-title">2. 여호수아남전도회</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org2ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org2ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1204,20 +1204,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-2-title" placeholder="?�호?�아?�전?�회">
+                        <label>이름</label>
+                        <input type="text" name="org-2-title" placeholder="여호수아남전도회">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-2-desc" placeholder="?�리???�성">
+                        <label>설명</label>
+                        <input type="text" name="org-2-desc" placeholder="승리의 함성">
                     </div>
                     <div class="form-group">
-                        <label>?�당 교역??/label>
-                        <input type="text" name="org-2-pastor" placeholder="?�당 교역???�름">
+                        <label>담당 교역자</label>
+                        <input type="text" name="org-2-pastor" placeholder="담당 교역자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-2-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-2-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
 
@@ -1225,13 +1225,13 @@
 
                 <!-- Org 3 -->
                 <div class="admin-card">
-                    <h3 class="card-title">3. ?�오미여?�도??/h3>
+                    <h3 class="card-title">3. 나오미여전도회</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org3ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org3ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1240,20 +1240,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-3-title" placeholder="?�오미여?�도??>
+                        <label>이름</label>
+                        <input type="text" name="org-3-title" placeholder="나오미여전도회">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-3-desc" placeholder="기쁨???��?">
+                        <label>설명</label>
+                        <input type="text" name="org-3-desc" placeholder="기쁨의 섬김">
                     </div>
                     <div class="form-group">
-                        <label>?�당 교역??/label>
-                        <input type="text" name="org-3-pastor" placeholder="?�당 교역???�름">
+                        <label>담당 교역자</label>
+                        <input type="text" name="org-3-pastor" placeholder="담당 교역자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-3-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-3-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
 
@@ -1261,13 +1261,13 @@
 
                 <!-- Org 4 -->
                 <div class="admin-card">
-                    <h3 class="card-title">4. 루디?�여?�도??/h3>
+                    <h3 class="card-title">4. 루디아여전도회</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org4ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org4ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1276,20 +1276,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-4-title" placeholder="루디?�여?�도??>
+                        <label>이름</label>
+                        <input type="text" name="org-4-title" placeholder="루디아여전도회">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-4-desc" placeholder="?�신�??�랑">
+                        <label>설명</label>
+                        <input type="text" name="org-4-desc" placeholder="헌신과 사랑">
                     </div>
                     <div class="form-group">
-                        <label>?�당 교역??/label>
-                        <input type="text" name="org-4-pastor" placeholder="?�당 교역???�름">
+                        <label>담당 교역자</label>
+                        <input type="text" name="org-4-pastor" placeholder="담당 교역자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-4-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-4-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
 
@@ -1297,13 +1297,13 @@
 
                 <!-- Org 5 -->
                 <div class="admin-card">
-                    <h3 class="card-title">5. ?�안?�여?�도??/h3>
+                    <h3 class="card-title">5. 요안나여전도회</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org5ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org5ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1312,33 +1312,33 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-5-title" placeholder="?�안?�여?�도??>
+                        <label>이름</label>
+                        <input type="text" name="org-5-title" placeholder="요안나여전도회">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-5-desc" placeholder="충성???�꾼">
+                        <label>설명</label>
+                        <input type="text" name="org-5-desc" placeholder="충성된 일꾼">
                     </div>
                     <div class="form-group">
-                        <label>?�당 교역??/label>
-                        <input type="text" name="org-5-pastor" placeholder="?�당 교역???�름">
+                        <label>담당 교역자</label>
+                        <input type="text" name="org-5-pastor" placeholder="담당 교역자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-5-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-5-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
                 </div>
 
                 <!-- Org 6 -->
                 <div class="admin-card">
-                    <h3 class="card-title">6. ?�온?��??�</h3>
+                    <h3 class="card-title">6. 시온성가대</h3>
                     <div class="form-group">
-                        <label>?��?지</label>
+                        <label>이미지</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="org6ImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="org6ImgUrl" class="img-url-input" placeholder="https://..."
                                     style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1347,20 +1347,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�름</label>
-                        <input type="text" name="org-6-title" placeholder="?�온?��??�">
+                        <label>이름</label>
+                        <input type="text" name="org-6-title" placeholder="시온성가대">
                     </div>
                     <div class="form-group">
-                        <label>?�명</label>
-                        <input type="text" name="org-6-desc" placeholder="?�나?�을 찬양?�는 기쁨">
+                        <label>설명</label>
+                        <input type="text" name="org-6-desc" placeholder="하나님을 찬양하는 기쁨">
                     </div>
                     <div class="form-group">
-                        <label>지?�자/반주???�??/label>
-                        <input type="text" name="org-6-pastor" placeholder="?�당???�름">
+                        <label>지휘자/반주자/대장</label>
+                        <input type="text" name="org-6-pastor" placeholder="담당자 이름">
                     </div>
                     <div class="form-group">
-                        <label>?�세 ?�명 (Detailed Description)</label>
-                        <textarea name="org-6-detail-desc" placeholder="?�세??기�? ?�개 ?�용???�력?�세??"
+                        <label>상세 설명 (Detailed Description)</label>
+                        <textarea name="org-6-detail-desc" placeholder="상세한 기관 소개 내용을 입력하세요."
                             style="height: 100px;"></textarea>
                     </div>
                 </div>
@@ -1370,35 +1370,35 @@
         <!-- SERMON TAB (Separate Logic) -->
         <div id="sermon" class="tab-content">
             <div class="admin-card">
-                <h3 class="card-title">?�교 관�?/h3>
-                <button type="button" class="btn-add" id="newSermonBtn"><i class="fas fa-plus"></i> ???�교 ?�록</button>
+                <h3 class="card-title">설교 관리</h3>
+                <button type="button" class="btn-add" id="newSermonBtn"><i class="fas fa-plus"></i> 새 설교 등록</button>
 
                 <div class="form-group"
                     style="background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
-                    <h4>?�교 ?�록/?�정</h4>
+                    <h4>설교 등록/수정</h4>
                     <input type="hidden" id="sermonId">
                     <div class="form-group">
-                        <label>?�교 ?�짜</label>
-                        <input type="text" id="sermonDate" placeholder="2025.12.07 주일?�배">
+                        <label>설교 날짜</label>
+                        <input type="text" id="sermonDate" placeholder="2025.12.07 주일예배">
                     </div>
                     <div class="form-group">
-                        <label>?�교 ?�목</label>
-                        <input type="text" id="sermonTitle" placeholder="?�교 ?�목">
+                        <label>설교 제목</label>
+                        <input type="text" id="sermonTitle" placeholder="설교 제목">
                     </div>
                     <div class="form-group">
-                        <label>본문 말�?</label>
-                        <input type="text" id="sermonScripture" placeholder="?? ?�한복음 3:16">
+                        <label>본문 말씀</label>
+                        <input type="text" id="sermonScripture" placeholder="예: 요한복음 3:16">
                     </div>
                     <div class="form-group">
-                        <label>?�교??/label>
-                        <input type="text" id="sermonPreacher" placeholder="김?�주 ?�임목사">
+                        <label>설교자</label>
+                        <input type="text" id="sermonPreacher" placeholder="김석주 담임목사">
                     </div>
                     <div class="form-group">
-                        <label>목사???�로???�진 (?��? ?�형 ?��?지)</label>
+                        <label>목사님 프로필 사진 (작은 원형 이미지)</label>
                         <div class="file-upload-wrapper" style="padding: 10px;">
                             <input type="file" id="sermonPreacherImgInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="sermonPreacherImgUrl" class="img-url-input"
                                     placeholder="https://..." style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1408,16 +1408,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>?�튜�??�상 URL (Embed Link)</label>
+                        <label>유튜브 영상 URL (Embed Link)</label>
                         <input type="text" id="sermonVideoUrl" placeholder="https://www.youtube.com/embed/VIDEO_ID">
-                        <p class="helper-text">?�튜�??�상 -> 공유 -> ?��?�?-> src 주소�?복사?�서 ?�으?�요.</p>
+                        <p class="helper-text">유튜브 영상 -> 공유 -> 퍼가기 -> src 주소를 복사해서 넣으세요.</p>
                     </div>
                     <div class="form-group">
-                        <label>?�상 �??��?지 (?�네??</label>
+                        <label>영상 첫 이미지 (썸네일)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="sermonThumbnailInput" accept="image/*">
                             <div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
-                                <span style="font-size: 0.8rem; color: #666;">?�는 URL:</span>
+                                <span style="font-size: 0.8rem; color: #666;">또는 URL:</span>
                                 <input type="text" id="sermonThumbnailUrl" class="img-url-input"
                                     placeholder="https://..." style="padding: 5px; font-size: 0.8rem;">
                             </div>
@@ -1427,31 +1427,31 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>말�? ?�약</label>
-                        <textarea id="sermonSummary" placeholder="?�교 ?�약 ?�용???�력?�세??"></textarea>
+                        <label>말씀 요약</label>
+                        <textarea id="sermonSummary" placeholder="설교 요약 내용을 입력하세요."></textarea>
                     </div>
                     <div class="form-group">
-                        <label>?�약 ?�일 첨�? (PDF/PPT)</label>
+                        <label>요약 파일 첨부 (PDF/PPT)</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="sermonFileInput" accept=".pdf, .ppt, .pptx">
                             <input type="hidden" id="sermonFileBase64">
-                            <p class="helper-text" id="sermonFileName">?�택???�일 ?�음</p>
+                            <p class="helper-text" id="sermonFileName">선택된 파일 없음</p>
 
                         </div>
                     </div>
 
                     <div style="display: flex; gap: 10px;">
                         <button type="button" id="createSermonBtn" class="btn-save"
-                            style="width: 100%; background-color: #27ae60;">???�교 ?�록</button>
+                            style="width: 100%; background-color: #27ae60;">새 설교 등록</button>
                         <button type="button" id="updateSermonBtn" class="btn-save"
-                            style="width: 100%; display: none;">변경사??
-                            ?�??/button>
+                            style="width: 100%; display: none;">변경사항
+                            저장</button>
                         <button type="button" id="cancelSermonBtn" class="btn-save"
                             style="width: 30%; background-color: #95a5a6; display: none;">취소</button>
                     </div>
                 </div>
 
-                <h4 style="margin-top: 30px;">?�교 목록</h4>
+                <h4 style="margin-top: 30px;">설교 목록</h4>
                 <div class="sermon-list-admin">
                     <!-- Dynamic List -->
                 </div>
@@ -1461,37 +1461,37 @@
         <!-- NOTICE TAB (Separate Logic) -->
         <div id="notice" class="tab-content">
             <div class="admin-card">
-                <h3 class="card-title">공�??�항 관�?/h3>
-                <button type="button" class="btn-add" id="newNoticeBtn"><i class="fas fa-plus"></i> ??공�? ?�성</button>
+                <h3 class="card-title">공지사항 관리</h3>
+                <button type="button" class="btn-add" id="newNoticeBtn"><i class="fas fa-plus"></i> 새 공지 작성</button>
 
                 <div class="form-group"
                     style="background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
-                    <h4>공�??�항 ?�성/?�정</h4>
+                    <h4>공지사항 작성/수정</h4>
                     <input type="hidden" id="noticeId">
                     <div class="form-group">
                         <label>분류</label>
                         <select id="noticeCategory">
-                            <option value="공�?">공�?</option>
-                            <option value="?�사">?�사</option>
-                            <option value="?�식">?�식</option>
+                            <option value="공지">공지</option>
+                            <option value="행사">행사</option>
+                            <option value="소식">소식</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>?�목</label>
-                        <input type="text" id="noticeTitle" placeholder="?�목 ?�력">
+                        <label>제목</label>
+                        <input type="text" id="noticeTitle" placeholder="제목 입력">
                     </div>
                     <div class="form-group">
-                        <label>?�짜</label>
+                        <label>날짜</label>
                         <input type="text" id="noticeDate" placeholder="2025.00.00">
                     </div>
                     <div class="form-group">
-                        <label>?�용</label>
-                        <textarea id="noticeContent" placeholder="?�용???�력?�세??"></textarea>
+                        <label>내용</label>
+                        <textarea id="noticeContent" placeholder="내용을 입력하세요."></textarea>
                     </div>
-                    <button type="button" id="saveNoticeBtn" class="btn-save" style="width: 100%;">공�??�항 ?�??/button>
+                    <button type="button" id="saveNoticeBtn" class="btn-save" style="width: 100%;">공지사항 저장</button>
                 </div>
 
-                <h4 style="margin-top: 30px;">공�??�항 목록</h4>
+                <h4 style="margin-top: 30px;">공지사항 목록</h4>
                 <div class="notice-list-admin">
                     <!-- Dynamic List -->
                 </div>
@@ -1500,7 +1500,7 @@
 
     </main>
 
-    <script src="../js/data.js"></script>
+    <script src="../js/data.js?v=20260210_1450"></script>
     <script src="../js/admin.js"></script>
 </body>
 
