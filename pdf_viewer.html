@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>말씀 요약 뷰어</title>
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px 0;
+            background: #f0f2f5;
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        #pdfViewer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .pdf-page-canvas {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 4px;
+        }
+
+        .loading {
+            font-size: 1.1rem;
+            margin-top: 50px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spinner {
+            font-size: 2rem;
+            color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading" class="loading">
+        <i class="fas fa-spinner fa-spin spinner"></i>
+        <span>문서를 불러오는 중입니다...</span>
+    </div>
+    <div id="pdfViewer"></div>
+
+    <script>
+        // Set worker source
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const fileUrl = params.get('file');
+
+        if (fileUrl) {
+            const loading = document.getElementById('loading');
+            const viewer = document.getElementById('pdfViewer');
+
+            pdfjsLib.getDocument(fileUrl).promise.then(async pdfDoc => {
+                loading.style.display = 'none';
+
+                // Render all pages for scrolling
+                for (let num = 1; num <= pdfDoc.numPages; num++) {
+                    const page = await pdfDoc.getPage(num);
+
+                    const canvas = document.createElement('canvas');
+                    canvas.className = 'pdf-page-canvas';
+                    viewer.appendChild(canvas);
+
+                    const ctx = canvas.getContext('2d');
+
+                    // Use scale 1.5 for sharper text on high-DPI screens (Retina, Mobile)
+                    const viewport = page.getViewport({ scale: 1.5 });
+
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    const renderCtx = {
+                        canvasContext: ctx,
+                        viewport: viewport
+                    };
+
+                    await page.render(renderCtx).promise;
+                }
+            }).catch(err => {
+                loading.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="color: #e74c3c; font-size: 2rem; margin-bottom: 10px;"></i>
+                    <span style="color:#e74c3c;">문서를 불러오지 못했습니다.</span>
+                `;
+                console.error('PDF Load Error:', err);
+            });
+        } else {
+            document.getElementById('loading').innerHTML = `
+                <i class="fas fa-exclamation-triangle" style="color: #e74c3c; font-size: 2rem; margin-bottom: 10px;"></i>
+                <span>파일이 지정되지 않았습니다.</span>
+            `;
+        }
+    </script>
+</body>
+
+</html>

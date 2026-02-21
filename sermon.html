@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="styles.css">
-    <script src="js/data.js?v=20260221_1833"></script>
+    <script src="js/data.js?v=20260221_1843"></script>
 
     <!-- Critical Image Pre-loader (Anti-Flash) -->
     <script>
@@ -385,7 +385,7 @@
     </div>
 
     <!-- Scripts -->
-    <!-- script src="js/data.js?v=20260221_1833" moved to head -->
+    <!-- script src="js/data.js?v=20260221_1843" moved to head -->
     <script src="js/main.js"></script>
 
     <script>
@@ -581,11 +581,23 @@
             if (sermon.file) {
                 summaryDownloadBtn.style.display = 'inline-flex';
                 summaryDownloadBtn.href = sermon.file;
-                // Check if it's PDF
+
                 if (sermon.file.endsWith('.pdf') || sermon.file.includes('pdf')) {
-                    summaryDownloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> 설교 요약 PDF 다운로드';
+                    summaryDownloadBtn.innerHTML = '<i class="fas fa-file-pdf"></i> 설교 요약 PDF 다운로드 (직접 다운로드)';
+
+                    // Ensure robust URL encoding for the viewer
+                    const viewerUrl = 'pdf_viewer.html?file=' + encodeURIComponent(sermon.file);
+
+                    let viewerHtml = `
+                    <div class="pdf-viewer-container" style="margin-top: 20px; height: 65vh; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; background: #f9f9f9;">
+                        <iframe src="${viewerUrl}" width="100%" height="100%" style="border: none;"></iframe>
+                    </div>`;
+
+                    summaryBody.innerHTML = (sermon.summary ? sermon.summary.replace(/\n/g, '<br>') : "") + viewerHtml;
+
                 } else {
                     summaryDownloadBtn.innerHTML = '<i class="fas fa-download"></i> 설교 요약 파일 다운로드';
+                    summaryBody.innerHTML = sermon.summary ? sermon.summary.replace(/\n/g, '<br>') : "요약 내용이 없습니다.";
                 }
             } else {
                 summaryDownloadBtn.style.display = 'none';

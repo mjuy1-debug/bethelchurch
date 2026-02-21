@@ -429,17 +429,18 @@ function setupModals() {
                 if (downloadLink) {
                     downloadLink.href = file;
                     downloadLink.style.display = 'inline-block';
-                    if (file.startsWith('data:application/pdf')) {
-                        downloadLink.innerHTML = '<i class="fas fa-download"></i> 설교 요약 PDF 다운로드';
+                    if (file.endsWith('.pdf') || file.includes('pdf') || file.startsWith('data:application/pdf')) {
+                        downloadLink.innerHTML = '<i class="fas fa-download"></i> 설교 요약 PDF 다운로드 (직접 다운로드)';
                     } else {
                         downloadLink.innerHTML = '<i class="fas fa-download"></i> 설교 요약 파일 다운로드';
                     }
                 }
 
-                if (file.startsWith('data:application/pdf')) {
+                if (file.endsWith('.pdf') || file.includes('pdf') || file.startsWith('data:application/pdf')) {
+                    const viewerUrl = 'pdf_viewer.html?file=' + encodeURIComponent(file);
                     content += `
-                        <div class="summary-file-viewer" style="margin-top: 20px; height: 400px;">
-                            <iframe src="${file}" width="100%" height="100%" style="border: 1px solid #ddd;"></iframe>
+                        <div class="pdf-viewer-container" style="margin-top: 20px; height: 65vh; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; background: #f9f9f9;">
+                            <iframe src="${viewerUrl}" width="100%" height="100%" style="border: none;"></iframe>
                         </div>
                      `;
                 }
