@@ -1512,6 +1512,52 @@ h6 {
     padding-right: 10px;
 }
 
+/* Summary Modal specific styles */
+.summary-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    /* Thinner than default modal */
+    border-radius: 12px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .summary-modal-content {
+    transform: translateY(0);
+}
+
+.summary-text {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+    white-space: pre-line;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn-download:hover {
+    opacity: 0.9;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .quick-links-grid {
