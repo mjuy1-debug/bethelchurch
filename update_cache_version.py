@@ -2,7 +2,7 @@ import os
 import re
 
 directory = '.'
-new_version = '20260310_1430'
+new_version = '20260311_0942'
 
 for root, dirs, files in os.walk(directory):
     for file in files:
