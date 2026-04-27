@@ -102,6 +102,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const exportBtn = document.getElementById('exportBtn');
         if (exportBtn) exportBtn.addEventListener('click', exportDashboardData);
 
+        const deployBtn = document.getElementById('deployBtn');
+        if (deployBtn) {
+            deployBtn.addEventListener('click', async () => {
+                if (!confirm('현재 저장된 데이터를 라이브 사이트에 바로 배포하시겠습니까? (시간이 다소 소요될 수 있습니다)')) return;
+                
+                try {
+                    deployBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 배포 진행 중...';
+                    deployBtn.style.opacity = '0.7';
+                    deployBtn.disabled = true;
+                    
+                    const response = await fetch('http://localhost:3000/deploy', { method: 'POST' });
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        alert('배포 성공! 약 1~2분 뒤 모바일/PC에서 새로고침하여 확인할 수 있습니다.');
+                    } else {
+                        alert('배포 실패: ' + (result.error || '알 수 없는 오류'));
+                        console.error('Deploy error:', result);
+                    }
+                } catch (e) {
+                    alert('배포 오류: 서버가 실행 중인지 확인하세요.');
+                    console.error(e);
+                } finally {
+                    deployBtn.innerHTML = '<i class="fas fa-rocket"></i> 사이트 바로 배포';
+                    deployBtn.style.opacity = '1';
+                    deployBtn.disabled = false;
+                }
+            });
+        }
+
         // Image Uploads Configuration
         const imageConfigs = [
             { input: 'heroBgInput', key: 'hero-bg', preview: 'heroBgPreview', urlInput: 'heroBgUrl' },

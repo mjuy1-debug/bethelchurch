@@ -3,6 +3,7 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const { exec } = require('child_process');
 
 const app = express();
 const PORT = 3000;
@@ -87,6 +88,55 @@ app.post('/save-data', (req, res) => {
         }
         res.json({ message: 'Data saved successfully to js/data.js' });
     });
+});
+
+// Helper: Bump cache version in HTML files (binary safe for EUC-KR)
+function bumpCacheVersion() {
+    const timestamp = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 12);
+    const newVersion = `data.js?v=${timestamp}`;
+    const walk = (dir) => {
+        let results = [];
+        const list = fs.readdirSync(dir);
+        list.forEach((file) => {
+            file = path.join(dir, file);
+            const stat = fs.statSync(file);
+            if (stat && stat.isDirectory()) {
+                if (!file.includes('node_modules') && !file.includes('.git')) {
+                    results = results.concat(walk(file));
+                }
+            } else {
+                if (file.endsWith('.html')) results.push(file);
+            }
+        });
+        return results;
+    };
+
+    const htmlFiles = walk(__dirname);
+    htmlFiles.forEach(file => {
+        let content = fs.readFileSync(file, 'binary');
+        const updated = content.replace(/data\.js\?v=\d+_\d+/g, newVersion);
+        if (content !== updated) {
+            fs.writeFileSync(file, updated, 'binary');
+        }
+    });
+}
+
+// New Endpoint: Auto Deploy to GitHub
+app.post('/deploy', (req, res) => {
+    try {
+        bumpCacheVersion();
+        
+        exec('git add . && git commit -m "Auto deploy from admin" && git push origin main', { cwd: __dirname }, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Deploy error: ${error.message}`);
+                return res.status(500).json({ error: 'Failed to deploy', details: error.message });
+            }
+            res.json({ message: 'Successfully deployed to website!' });
+        });
+    } catch (e) {
+        console.error('Cache bump error:', e);
+        res.status(500).json({ error: 'Failed to update cache versions', details: e.message });
+    }
 });
 
 // Start Server
