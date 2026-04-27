@@ -114,7 +114,7 @@ function bumpCacheVersion() {
     const htmlFiles = walk(__dirname);
     htmlFiles.forEach(file => {
         let content = fs.readFileSync(file, 'binary');
-        const updated = content.replace(/data\.js\?v=\d+_\d+/g, newVersion);
+        const updated = content.replace(/data\.js\?v=[a-zA-Z0-9_-]+/g, newVersion);
         if (content !== updated) {
             fs.writeFileSync(file, updated, 'binary');
         }
